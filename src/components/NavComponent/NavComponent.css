@@ -1,0 +1,124 @@
+.main-nav {
+  position: fixed;
+  top: 0;
+  z-index: 7;
+  background: var(--blue-soft);
+  color: white;
+  font-weight: 800;
+  width: 100%;
+  height: 8vmin;
+  min-height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2vmax;
+}
+.main-nav .burguer-menu {
+  cursor: pointer;
+  display: block;
+  font-size: 2.5vmax;
+  transition: all 1s ease-in-out;
+}
+@media (min-width: 760px) {
+  .main-nav .burguer-menu {
+    display: none;
+  }
+}
+.main-nav .logo {
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.8vmax;
+}
+.main-nav ul {
+  display: none;
+  justify-content: center;
+  gap: 1vmax;
+}
+@media (min-width: 760px) {
+  .main-nav ul {
+    display: flex;
+  }
+}
+.main-nav ul li {
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 1vmax;
+  list-style: none;
+  border-right: 0.1vmax solid rgb(10, 67, 105);
+}
+.main-nav ul li:last-child {
+  border-right: 0.1vmax solid transparent;
+}
+.main-nav .options {
+  cursor: pointer;
+  font-size: 1.5vmax;
+}
+.main-nav .options .modal-options {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 1.5vmax;
+  top: 100%;
+  right: 0;
+  width: 15vmax;
+  height: 20vmax;
+  background: rgba(4, 10, 44, 0.637);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.main-nav .options .modal-options .dark-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  background-color: #eaeaea;
+  border: 0.1vmax solid rgb(126, 123, 89);
+  width: 3vmax;
+  height: 1.5vmax;
+  border-radius: 2vmax;
+  margin-bottom: 1.5vmax;
+}
+.main-nav .options .modal-options .dark-mode .selector {
+  height: 1.3vmax;
+  width: 1.3vmax;
+  background-color: var(--blue-hard);
+  border: 0.1vmax solid var(--blue-soft);
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+.main-nav .options .modal-options .dark-mode .selector:hover {
+  transform: translateX(100%);
+}
+.main-nav .options .modal-options .language {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1vmax;
+}
+.main-nav .options .modal-options .language button {
+  display: flex;
+  width: 100%;
+  border: 0.2vmax solid yellow;
+  cursor: pointer;
+  background-color: var(--blue-hard);
+  color: yellow;
+}
+.main-nav .options .modal-options .language button img {
+  width: 23%;
+  height: 75%;
+}
+.main-nav .options .modal-options.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}/*# sourceMappingURL=NavComponent.css.map */

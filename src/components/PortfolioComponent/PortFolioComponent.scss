@@ -1,0 +1,379 @@
+@import '../mixins.scss';
+
+.portfolio{
+  @include style-sections;
+  @include flex-center-all;
+  flex-direction: column;
+  padding: 1.5vmax;
+  padding-bottom: 5vmax;
+  gap: 1vmax;
+
+
+  .tab{
+    @include style-tab-section;
+    left: 0.5%;
+   }
+
+   .categories-projects{
+    display: flex;
+    justify-content: center;
+    gap: 1vmax;
+    margin-bottom: 1vmax;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+    button{
+      width: 40%;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+    }
+
+    button:hover{
+      background-color: orange;
+    }
+
+    button:active{
+      background-color: red;
+      color: white;
+    }
+   }
+
+   .categories-projects.fixed{
+    position: fixed;
+    top: 8vmin;
+    z-index: 5;
+    background: var(--blue-soft);
+    padding-bottom: 1vmax;
+   }
+
+   .container-hightlights{
+    @include flex-center-all;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5vmax;
+    @media(min-width: 700px){
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    .project-hightlight{
+      background: rgb(0, 0, 0);
+      border: 0.2vmax solid yellow;
+      border-radius: 0.5vmax;
+      width: 100%;
+      @media only screen and (min-width: 500px) and (max-width: 699px) {
+        width: 80%;
+      }
+      @include flex-center-all;
+      flex-direction: column;
+      gap: 0.5vmax;
+      .title-project{
+        font-size: 2vmax;
+        @include style-silver;
+        display: flex;
+        gap: 1vmax;
+      }
+      .photo-project{
+        width: 98%;
+        height: 25vmax;
+        border-radius: 0.5vmax;
+        overflow: hidden;
+        img{
+          width: 100%;
+          height: 100%;
+          transition: all 0.3s ease-in-out;
+        }
+
+        img:hover{
+          transform: scale(1.5);
+        }
+      }
+
+      strong{
+        font-size: 1.8vmax;
+      }
+
+      .container-skills{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 1.5vmax;
+
+        .skill{
+          @include flex-center-all;
+          color: yellow;
+          font-size: 3vmax;
+          border-radius: 0.5vmax;
+          background-color: rgb(11, 21, 78);
+          height: 4vmax;
+          width: 4vmax;
+        }
+      }
+
+      .project-visualization{
+        width:100%;
+        cursor: pointer;
+        a{
+          color: black;
+        }
+      }
+    }
+   
+
+   }
+
+   .container-hightlights.hide{
+    display: none;
+   }
+
+
+
+
+   .container-other-projects{
+    @include flex-center-all;
+    width: 100%;
+    flex-direction: column;
+    gap: 1.5vmax;
+    @media(min-width: 632px){
+      display: grid;
+      justify-items: center;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+    }
+    @media(min-width: 832px){
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .other-projects{
+      background: rgb(0, 0, 0);
+      border: 0.2vmax solid yellow;
+      border-radius: 0.5vmax;
+      width: 90%;
+      @media only screen and (min-width: 432px) and (max-width: 632px) {
+        width: 75%;
+      }
+      @include flex-center-all;
+      flex-direction: column;
+      gap: 0.5vmax;
+      .title-project{
+        font-size: 2vmax;
+        @include style-silver;
+        display: flex;
+        gap: 1vmax;
+      }
+      .photo-project{
+        width: 98%;
+        height: 20vmax;
+        @media only screen and (min-width: 500px) and (max-width: 699px) {
+          height: 25vmax;
+        }
+        border-radius: 0.5vmax;
+        overflow: hidden;
+        img{
+          width: 100%;
+          height: 100%;
+          transition: all 0.3s ease-in-out;
+        }
+
+        img:hover{
+          transform: scale(1.5);
+        }
+      }
+
+      strong{
+        font-size: 1.8vmax;
+      }
+
+      .container-skills{
+        align-self: flex-start;
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1vmax;
+        padding-left: 1vmax;
+        margin-bottom: 1.5vmax;
+
+        strong{
+          font-size: 1vmax;
+        }
+
+        .skill{
+          @include flex-center-all;
+          color: yellow;
+          font-size: 1.2vmax;
+          border-radius: 0.5vmax;
+          background-color: rgb(11, 21, 78);
+          height: 1.5vmax;
+          width: 1.5vmax;
+        }
+      }
+
+      .description{
+        display: flex;
+        align-items: center;
+        text-align: start;
+        padding: 0 1vmax;
+        font-size: 1vmax;
+        height: 5vmax;
+      }
+
+      .project-visualization{
+        width:100%;
+        display: flex;
+        gap: 0.5vmax;
+        button{
+          width: 50%;
+          cursor: pointer;
+          a{
+            color: black;
+          }
+        }
+      }
+    }
+
+  }
+
+  .container-other-projects.hide{
+    display: none;
+   }
+
+
+
+
+
+   .modal-hightlights{
+    position: fixed;
+    @include flex-center-all;
+    align-items: center;
+    top: 8vmin;
+    z-index: 6;
+    background: rgba(0, 0, 0, 0.692);
+    color: white;
+    width: 100%;
+    min-height: 100vh;
+    .modal{
+      overflow-y: scroll;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 0.2vmax solid yellow;
+      height: 80%;
+      margin-bottom: 5vmax;
+      width: 95%;
+      @media(min-width: 760px){
+        width: 80%;
+      }
+      @media(min-width: 1100px){
+        width: 70%;
+      }
+      @media(min-width: 1300px){
+        width: 52%;
+      }
+      
+      .exit{
+        cursor: pointer;
+        position: absolute;
+        top: 1%;
+        right: 1%; 
+      }
+
+      .title-project{
+        font-size: 2vmax;
+        @include style-silver;
+        display: flex;
+        gap: 1vmax;
+      }
+
+      .photo-project{
+        position: relative;
+        width: 100%;
+        height: 35vmax;
+       
+        @media(min-width: 760px){
+          height: 35vmax;
+        }
+        @media(min-width: 1300px){
+          height: 28vmax;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+        }
+        button{
+          position: absolute;
+          background-color: var(--blue-soft);
+          color: yellow;
+          width: auto;
+          font-size: 2.5vmax;
+          top: 50%;
+          transform: translateY(-50%);
+          cursor: pointer;
+        }
+
+        button:nth-child(1){
+          right: 1.5%;
+        }
+
+        button:last-child{
+          left: 1.5%;
+        }
+      }
+
+
+
+      .container-skills{
+        align-self: flex-start;
+        width: auto;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: red;
+        border-radius: 0 5px 5px 0;
+        gap: 1vmax;
+        padding: 0.2vmax 1vmax;
+        margin-bottom: 1.5vmax;
+
+        strong{
+          font-size: 1.5vmax;
+        }
+
+        .skill{
+          @include flex-center-all;
+          color: yellow;
+          font-size: 1.5vmax;
+          border-radius: 0.5vmax;
+          background-color: rgb(11, 21, 78);
+          height: 1.8vmax;
+          width: 1.8vmax;
+        }
+      }
+
+      
+
+      .description{
+        display: flex;
+        align-items: center;
+        text-align: start;
+        justify-content: center;
+        padding: 0 1vmax;
+        padding-bottom: 0.8vmax;
+        font-size: 1vmax;
+        height: 5vmax;
+      }
+      
+      .project-visualization{
+        width:100%;
+        display: flex;
+        gap: 0.5vmax;
+        button{
+          width: 50%;
+          cursor: pointer;
+          a{
+            color: black;
+          }
+        }
+      }
+    }
+  }
+}

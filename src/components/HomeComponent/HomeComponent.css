@@ -1,0 +1,287 @@
+.home {
+  width: 100%;
+  position: relative;
+  margin-top: 7.8vmin;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: var(--blue-hard);
+  width: 100%;
+  color: white;
+  padding: 1vmax;
+  height: auto;
+  height: 100vmin;
+}
+.home .modal-categories {
+  position: fixed;
+  top: 8vmin;
+  left: -100%;
+  width: 85vw;
+  height: 100vh;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: rgba(4, 10, 44, 0.637);
+  z-index: 7;
+  padding: 1vmax;
+  transition: all 300ms ease-in-out;
+}
+@media (min-width: 760px) {
+  .home .modal-categories {
+    display: none;
+  }
+}
+.home .modal-categories .exit {
+  cursor: pointer;
+  height: 3%;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  font-size: 3vmax;
+  color: white;
+}
+.home .modal-categories .image-modal {
+  background: var(--blue-hard);
+  border: 0.5vmax solid yellow;
+  width: 20vmax;
+  height: 20vmax;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1vmax;
+}
+.home .modal-categories .image-modal img {
+  width: 50%;
+}
+.home .modal-categories hr {
+  color: var(--blue-soft);
+}
+.home .modal-categories ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+.home .modal-categories ul li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2vmax;
+  font-size: 4.5vmax;
+  margin-bottom: 2.5vmax;
+  cursor: pointer;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.home .modal-categories ul li span {
+  color: yellow;
+}
+.home .modal-categories div {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1vmax;
+}
+.home .modal-categories div button {
+  font-size: 2.5vmax;
+  color: yellow;
+  border: 0.2vmax solid yellow;
+  background-color: var(--blue-hard);
+  width: 80%;
+  height: 20%;
+}
+.home .modal-categories.show {
+  left: 0;
+}
+.home .my-photo-personal {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  z-index: 2;
+}
+.home .my-photo-personal img {
+  height: 100%;
+}
+.home .my-personal-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 9vmax;
+  margin-left: 5vmax;
+  gap: 0.5vmax;
+  height: 100%;
+  width: 100%;
+  padding: 0.5vmax;
+  z-index: 3;
+}
+@media (min-width: 700px) {
+  .home .my-personal-info {
+    justify-content: center;
+  }
+}
+@media (min-width: 550px) {
+  .home .my-personal-info {
+    margin-left: 10vmax;
+    margin-top: 0vmax;
+  }
+}
+.home .my-personal-info h1 {
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: 80%;
+  font-size: 4.5vmax;
+  margin-bottom: 1.5vmax;
+}
+@media (min-width: 550px) {
+  .home .my-personal-info h1 {
+    font-size: 7.5vmax;
+  }
+}
+.home .my-personal-info h3 {
+  font-size: 2vmax;
+  margin-top: 5vmax;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  color: rgb(247, 231, 12);
+  text-shadow: 2px 2px 4px rgba(224, 238, 28, 0.726);
+}
+.home .my-personal-info p {
+  width: 60%;
+  text-align: justify;
+  margin-bottom: 2.5vmax;
+  font-size: 1.2vmax;
+}
+@media (min-width: 550px) {
+  .home .my-personal-info p {
+    font-size: 2vmax;
+  }
+}
+.home .my-personal-info .container-media {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(247, 231, 12);
+  gap: 1.5vmax;
+  font-size: 2vmax;
+}
+.home .frame-decoration {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 3%;
+  height: 100%;
+  background: rgb(247, 231, 12);
+  z-index: 1;
+}
+.home .frame-decoration .container-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.home .frame-decoration .container-frame .play-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgb(247, 231, 12);
+  color: var(--blue-hard);
+  width: 5vmax;
+  height: 5vmax;
+  gap: 1.5vmax;
+  font-size: 2.5vmax;
+  z-index: 1;
+  border-radius: 50%;
+}
+@media (min-width: 760px) {
+  .home .frame-decoration .container-frame .play-video {
+    width: 7vmax;
+    height: 7vmax;
+  }
+}
+.home .logo-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.home .logo-background span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.home .logo-background span strong {
+  font-size: 11vmin;
+  font-family: "Orbitron", sans-serif;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 2px 2px 4px var(--blue-soft);
+  opacity: 0.35;
+}
+@media (min-width: 760px) {
+  .home .logo-background span strong {
+    font-size: 7.5vmin;
+  }
+}
+@media (min-width: 1200px) {
+  .home .logo-background span strong {
+    font-size: 8.3vmin;
+  }
+}
+.home .logo-background span strong:nth-child(2) {
+  display: none;
+}
+@media (min-width: 760px) {
+  .home .logo-background span strong:nth-child(2) {
+    display: flex;
+  }
+}
+.home .logo-background span strong:nth-child(3) {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .home .logo-background span strong:nth-child(3) {
+    display: flex;
+  }
+}
+.home .logo-background span:nth-child(1) {
+  top: 10%;
+}
+.home .logo-background span:nth-child(2) {
+  top: 45%;
+}
+.home .logo-background span:nth-child(3) {
+  top: 80%;
+}/*# sourceMappingURL=HomeComponent.css.map */

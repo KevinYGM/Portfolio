@@ -1,0 +1,151 @@
+.contacts {
+  position: relative;
+  background: var(--blue-hard);
+  width: 100%;
+  color: white;
+  padding: 1vmax;
+  height: auto;
+}
+.contacts .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  padding: 1vmin;
+  width: 15%;
+  min-width: 7rem;
+  background: rgb(247, 231, 12);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0px 1px 20px rgb(1, 2, 1);
+  z-index: 4;
+  font-size: 1.2vmax;
+}
+.contacts .form-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2vmax;
+}
+.contacts .form-contact:focus-within .title-form .decoration {
+  left: 100%;
+  transform: rotate(180deg) translateX(100%);
+  border-bottom: 1vmax solid yellow;
+}
+.contacts .form-contact .title-form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+  width: 75%;
+  padding: 2vmax 0;
+  margin-bottom: 3vmax;
+  border-bottom: 0.2vmax solid rgb(255, 252, 252);
+}
+@media (min-width: 760px) {
+  .contacts .form-contact .title-form {
+    width: 60%;
+  }
+}
+.contacts .form-contact .title-form .decoration {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: rotate(180deg);
+  width: 0;
+  height: 0;
+  border-left: 1vmax solid transparent;
+  border-right: 8vmax solid transparent;
+  border-bottom: 1vmax solid white;
+  transition: all 2s ease-in-out;
+}
+.contacts .form-contact label {
+  width: 60%;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 0.5vmax;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (min-width: 500px) {
+  .contacts .form-contact label {
+    width: 40%;
+  }
+}
+@media (min-width: 500px) {
+  .contacts .form-contact label {
+    width: 35%;
+  }
+}
+@media (min-width: 1200px) {
+  .contacts .form-contact label {
+    width: 30%;
+  }
+}
+.contacts .form-contact label p {
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  font-size: 1.2vmax;
+  color: white;
+  transition: all 0.8s ease-in-out;
+}
+.contacts .form-contact label input, .contacts .form-contact label textarea {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  padding: 0.5vmax;
+  color: white;
+  border-bottom: 0.1vmax solid white;
+}
+.contacts .form-contact label input::-moz-placeholder, .contacts .form-contact label textarea::-moz-placeholder {
+  opacity: 0.5;
+  -moz-transition: all 0.8s ease-in-out;
+  transition: all 0.8s ease-in-out;
+}
+.contacts .form-contact label input::placeholder, .contacts .form-contact label textarea::placeholder {
+  opacity: 0.5;
+  transition: all 0.8s ease-in-out;
+}
+.contacts .form-contact label input:focus + p,
+.contacts .form-contact label textarea:focus + p {
+  visibility: visible;
+  opacity: 1;
+}
+.contacts .form-contact label input:focus,
+.contacts .form-contact label textarea:focus {
+  outline: 1px solid transparent;
+}
+.contacts .form-contact label input:focus::-moz-placeholder, .contacts .form-contact label textarea:focus::-moz-placeholder {
+  opacity: 0;
+}
+.contacts .form-contact label input:focus::placeholder,
+.contacts .form-contact label textarea:focus::placeholder {
+  opacity: 0;
+}
+.contacts .form-contact label .message {
+  width: 100%;
+}
+.contacts .form-contact button {
+  width: 60%;
+  height: 4vmax;
+}
+@media (min-width: 500px) {
+  .contacts .form-contact button {
+    width: 40%;
+  }
+}
+@media (min-width: 500px) {
+  .contacts .form-contact button {
+    width: 35%;
+  }
+}
+@media (min-width: 1200px) {
+  .contacts .form-contact button {
+    width: 30%;
+  }
+}/*# sourceMappingURL=ContactComponent.css.map */

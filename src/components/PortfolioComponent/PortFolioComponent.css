@@ -1,0 +1,400 @@
+.portfolio {
+  position: relative;
+  background: var(--blue-hard);
+  width: 100%;
+  color: white;
+  padding: 1vmax;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1.5vmax;
+  padding-bottom: 5vmax;
+  gap: 1vmax;
+}
+.portfolio .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  transform: translateY(-100%);
+  padding: 1vmin;
+  width: 15%;
+  min-width: 7rem;
+  background: rgb(247, 231, 12);
+  color: black;
+  cursor: pointer;
+  box-shadow: 0px 1px 20px rgb(1, 2, 1);
+  z-index: 4;
+  font-size: 1.2vmax;
+  left: 0.5%;
+}
+.portfolio .categories-projects {
+  display: flex;
+  justify-content: center;
+  gap: 1vmax;
+  margin-bottom: 1vmax;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.portfolio .categories-projects button {
+  width: 40%;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.portfolio .categories-projects button:hover {
+  background-color: orange;
+}
+.portfolio .categories-projects button:active {
+  background-color: red;
+  color: white;
+}
+.portfolio .categories-projects.fixed {
+  position: fixed;
+  top: 8vmin;
+  z-index: 5;
+  background: var(--blue-soft);
+  padding-bottom: 1vmax;
+}
+.portfolio .container-hightlights {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.5vmax;
+}
+@media (min-width: 700px) {
+  .portfolio .container-hightlights {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+.portfolio .container-hightlights .project-hightlight {
+  background: rgb(0, 0, 0);
+  border: 0.2vmax solid yellow;
+  border-radius: 0.5vmax;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5vmax;
+}
+@media only screen and (min-width: 500px) and (max-width: 699px) {
+  .portfolio .container-hightlights .project-hightlight {
+    width: 80%;
+  }
+}
+.portfolio .container-hightlights .project-hightlight .title-project {
+  font-size: 2vmax;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  gap: 1vmax;
+}
+.portfolio .container-hightlights .project-hightlight .photo-project {
+  width: 98%;
+  height: 25vmax;
+  border-radius: 0.5vmax;
+  overflow: hidden;
+}
+.portfolio .container-hightlights .project-hightlight .photo-project img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.portfolio .container-hightlights .project-hightlight .photo-project img:hover {
+  transform: scale(1.5);
+}
+.portfolio .container-hightlights .project-hightlight strong {
+  font-size: 1.8vmax;
+}
+.portfolio .container-hightlights .project-hightlight .container-skills {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1.5vmax;
+}
+.portfolio .container-hightlights .project-hightlight .container-skills .skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  font-size: 3vmax;
+  border-radius: 0.5vmax;
+  background-color: rgb(11, 21, 78);
+  height: 4vmax;
+  width: 4vmax;
+}
+.portfolio .container-hightlights .project-hightlight .project-visualization {
+  width: 100%;
+  cursor: pointer;
+}
+.portfolio .container-hightlights .project-hightlight .project-visualization a {
+  color: black;
+}
+.portfolio .container-hightlights.hide {
+  display: none;
+}
+.portfolio .container-other-projects {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-direction: column;
+  gap: 1.5vmax;
+}
+@media (min-width: 632px) {
+  .portfolio .container-other-projects {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+@media (min-width: 832px) {
+  .portfolio .container-other-projects {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+.portfolio .container-other-projects .other-projects {
+  background: rgb(0, 0, 0);
+  border: 0.2vmax solid yellow;
+  border-radius: 0.5vmax;
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0.5vmax;
+}
+@media only screen and (min-width: 432px) and (max-width: 632px) {
+  .portfolio .container-other-projects .other-projects {
+    width: 75%;
+  }
+}
+.portfolio .container-other-projects .other-projects .title-project {
+  font-size: 2vmax;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  gap: 1vmax;
+}
+.portfolio .container-other-projects .other-projects .photo-project {
+  width: 98%;
+  height: 20vmax;
+  border-radius: 0.5vmax;
+  overflow: hidden;
+}
+@media only screen and (min-width: 500px) and (max-width: 699px) {
+  .portfolio .container-other-projects .other-projects .photo-project {
+    height: 25vmax;
+  }
+}
+.portfolio .container-other-projects .other-projects .photo-project img {
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+.portfolio .container-other-projects .other-projects .photo-project img:hover {
+  transform: scale(1.5);
+}
+.portfolio .container-other-projects .other-projects strong {
+  font-size: 1.8vmax;
+}
+.portfolio .container-other-projects .other-projects .container-skills {
+  align-self: flex-start;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1vmax;
+  padding-left: 1vmax;
+  margin-bottom: 1.5vmax;
+}
+.portfolio .container-other-projects .other-projects .container-skills strong {
+  font-size: 1vmax;
+}
+.portfolio .container-other-projects .other-projects .container-skills .skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  font-size: 1.2vmax;
+  border-radius: 0.5vmax;
+  background-color: rgb(11, 21, 78);
+  height: 1.5vmax;
+  width: 1.5vmax;
+}
+.portfolio .container-other-projects .other-projects .description {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  padding: 0 1vmax;
+  font-size: 1vmax;
+  height: 5vmax;
+}
+.portfolio .container-other-projects .other-projects .project-visualization {
+  width: 100%;
+  display: flex;
+  gap: 0.5vmax;
+}
+.portfolio .container-other-projects .other-projects .project-visualization button {
+  width: 50%;
+  cursor: pointer;
+}
+.portfolio .container-other-projects .other-projects .project-visualization button a {
+  color: black;
+}
+.portfolio .container-other-projects.hide {
+  display: none;
+}
+.portfolio .modal-hightlights {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  top: 8vmin;
+  z-index: 6;
+  background: rgba(0, 0, 0, 0.692);
+  color: white;
+  width: 100%;
+  min-height: 100vh;
+}
+.portfolio .modal-hightlights .modal {
+  overflow-y: scroll;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 0.2vmax solid yellow;
+  height: 80%;
+  margin-bottom: 5vmax;
+  width: 95%;
+}
+@media (min-width: 760px) {
+  .portfolio .modal-hightlights .modal {
+    width: 80%;
+  }
+}
+@media (min-width: 1100px) {
+  .portfolio .modal-hightlights .modal {
+    width: 70%;
+  }
+}
+@media (min-width: 1300px) {
+  .portfolio .modal-hightlights .modal {
+    width: 52%;
+  }
+}
+.portfolio .modal-hightlights .modal .exit {
+  cursor: pointer;
+  position: absolute;
+  top: 1%;
+  right: 1%;
+}
+.portfolio .modal-hightlights .modal .title-project {
+  font-size: 2vmax;
+  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
+  background: var(--gradient-silver);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: flex;
+  gap: 1vmax;
+}
+.portfolio .modal-hightlights .modal .photo-project {
+  position: relative;
+  width: 100%;
+  height: 35vmax;
+}
+@media (min-width: 760px) {
+  .portfolio .modal-hightlights .modal .photo-project {
+    height: 35vmax;
+  }
+}
+@media (min-width: 1300px) {
+  .portfolio .modal-hightlights .modal .photo-project {
+    height: 28vmax;
+  }
+}
+.portfolio .modal-hightlights .modal .photo-project img {
+  width: 100%;
+  height: 100%;
+}
+.portfolio .modal-hightlights .modal .photo-project button {
+  position: absolute;
+  background-color: var(--blue-soft);
+  color: yellow;
+  width: auto;
+  font-size: 2.5vmax;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.portfolio .modal-hightlights .modal .photo-project button:nth-child(1) {
+  right: 1.5%;
+}
+.portfolio .modal-hightlights .modal .photo-project button:last-child {
+  left: 1.5%;
+}
+.portfolio .modal-hightlights .modal .container-skills {
+  align-self: flex-start;
+  width: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background: red;
+  border-radius: 0 5px 5px 0;
+  gap: 1vmax;
+  padding: 0.2vmax 1vmax;
+  margin-bottom: 1.5vmax;
+}
+.portfolio .modal-hightlights .modal .container-skills strong {
+  font-size: 1.5vmax;
+}
+.portfolio .modal-hightlights .modal .container-skills .skill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: yellow;
+  font-size: 1.5vmax;
+  border-radius: 0.5vmax;
+  background-color: rgb(11, 21, 78);
+  height: 1.8vmax;
+  width: 1.8vmax;
+}
+.portfolio .modal-hightlights .modal .description {
+  display: flex;
+  align-items: center;
+  text-align: start;
+  justify-content: center;
+  padding: 0 1vmax;
+  padding-bottom: 0.8vmax;
+  font-size: 1vmax;
+  height: 5vmax;
+}
+.portfolio .modal-hightlights .modal .project-visualization {
+  width: 100%;
+  display: flex;
+  gap: 0.5vmax;
+}
+.portfolio .modal-hightlights .modal .project-visualization button {
+  width: 50%;
+  cursor: pointer;
+}
+.portfolio .modal-hightlights .modal .project-visualization button a {
+  color: black;
+}/*# sourceMappingURL=PortFolioComponent.css.map */

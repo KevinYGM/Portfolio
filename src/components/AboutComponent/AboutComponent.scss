@@ -1,0 +1,200 @@
+@import '../mixins.scss';
+
+.about-me{
+  @include style-sections();
+  display: grid;
+  @media(min-width: 991px){
+    grid-template-areas:   "photo info";
+    grid-template-columns: 20% 80%;
+  }
+  align-content: flex-start;
+  background-color: var(--blue-soft);
+  
+
+  .frame-texture{
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(to right, #06162b 1px, transparent 1px),
+        linear-gradient(to bottom, #06162b 1px, transparent 1px);
+    background-size: 1vmax 2vmax;
+  }
+
+  .tab{
+    @include style-tab-section;
+    right: 0.5%;
+   }
+
+  .photo{
+    display: none;
+    visibility: hidden;
+    padding: 1vmin;
+    @media (min-width: 991px) {
+      grid-area: photo;
+      @include flex-center-all();
+      width: 100%;
+      height: 100%;
+      visibility: visible;}
+    padding-top: 2vmin;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1.5vmax;
+   
+    
+    img{
+      background: var(--blue-soft);
+      border: 0.2vmax solid rgb(247, 231, 12);
+      width: 100%;
+      height: 70%;
+      border-radius: 0.5vmax;
+      z-index: 1;
+    }
+    
+    button{
+      width: 17vmax;
+      height: 3.5vmax;
+      font-size: 1.7vmax;
+      z-index: 1;
+    }
+  }
+
+  .container-info{
+    grid-area: info;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    .info{
+      padding: 1vmin;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      .presentation{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 3.5vmax;
+        
+        h2{
+          font-size: 2vmax;
+          @media(min-width:600px){
+            font-size: 3vmax;
+          }
+          @include style-logo();
+          color:rgb(247, 231, 12);
+          text-shadow: 2px 2px 4px rgba(224, 238, 28, 0.726);
+        }
+        button{
+          font-size: 1.2vmax;
+          @media (min-width: 991px) {
+            display: none;}
+        }
+
+      }
+      
+      h3{
+        font-size: 2vmax;
+        margin-bottom: 1.5vmin;
+        text-shadow: 1px 1px 2px rgba(199, 240, 20, 0.774);
+        @media(min-width:600px){
+          font-size: 2.7vmax;
+        }
+      }
+      p{
+        font-size: 1.3vmax;
+        width: 75%;
+        @media(min-width:600px){
+          width: 80%;
+          font-size: 2vmax;
+        }
+        text-shadow: 2px 2px 4px rgba(199, 240, 20, 0.774);
+        margin-bottom: 5vmin;
+        text-align: justify;
+      }
+      .resume{
+        display: grid;
+        width: 85%;
+        @media(min-width:480px){
+          width: 70%;
+        }
+        @media(min-width:760px){
+          width: 60%;
+        }
+        
+        gap: 1.5vmin;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        font-size: 1.4vmax;
+        padding:1vmin;
+
+        span{
+          display: flex;
+          align-items: center;
+          gap: 2vmin;
+        }
+
+        span:nth-child(2),
+        span:nth-child(4){
+          justify-content: flex-end;
+        }
+      }
+
+      .skill{
+        padding-top: 2vmax;
+        @include flex-center-all();
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+
+        h2{
+          @include style-logo();
+          margin-bottom: 5vmin;
+          font-size: 2vmax;
+        }
+
+        .container-skill{
+          width: 100%;
+          @media (min-width: 760px) {
+            width: 100%;}
+          display: flex;
+          justify-content: space-evenly;
+          gap: 1vmin;
+          margin-bottom: 5vmax;
+
+          div{
+            padding: 1vmax;
+            width: 15%;
+            height: 20vmin;
+            @include flex-center-all();
+            flex-direction: column;
+            align-items: space-evenly;
+            gap: 0.7vmin;
+            background-color: var(--blue-hard);
+
+            strong{
+              font-size: 5vmax;
+              color:rgb(247, 231, 12);
+            }
+
+            span{
+              font-size: 1.2vmax;
+              @media(min-width:600px){
+                font-size: 2vmax;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

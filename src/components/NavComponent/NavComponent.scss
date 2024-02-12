@@ -1,0 +1,124 @@
+@import '../mixins.scss';
+
+.main-nav{
+  position: fixed;
+  top: 0;
+  z-index: 7;
+  background: var(--blue-soft);
+  color: white;
+  font-weight: 800;
+  width: 100%;
+  height: 8vmin;
+  min-height: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2vmax;
+
+  .burguer-menu{
+    cursor: pointer;
+    display: block;
+    font-size: 2.5vmax;
+    transition: all 1s ease-in-out;
+    @media (min-width: 760px) {
+      display: none;}
+    }
+    
+
+  .logo{
+    @include style-logo();
+    font-size: 1.8vmax;
+  }
+
+  ul{
+    display: none;
+    @media (min-width: 760px) {
+      display: flex;}
+    justify-content: center;
+    gap: 1vmax;
+    li{
+      @include style-logo();
+      padding-right: 1vmax;
+      list-style: none;
+      border-right: 0.1vmax solid rgb(10, 67, 105);
+    }
+    li:last-child{
+      border-right: 0.1vmax solid transparent;
+    }
+  }
+
+
+  .options{
+    cursor: pointer;
+    font-size: 1.5vmax;
+
+    .modal-options{
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      padding: 1.5vmax;
+      top: 100%;
+      right: 0;
+      width: 15vmax;
+      height: 20vmax;
+      background: rgba(4, 10, 44, 0.637);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s ease-in-out;
+
+     
+
+      .dark-mode{
+        @include flex-center-all;
+        justify-content: flex-start;
+        background-color: #eaeaea; 
+        border: 0.1vmax solid rgb(126, 123, 89); 
+        width: 3vmax;
+        height: 1.5vmax;
+        border-radius: 2vmax;
+        margin-bottom: 1.5vmax;
+        
+    
+        .selector{
+          height: 1.3vmax;
+          width: 1.3vmax;
+          background-color: var(--blue-hard);
+          border: 0.1vmax solid var(--blue-soft); 
+          border-radius: 50%;
+          transition: all 0.5s ease-in-out;
+        }
+    
+        .selector:hover{
+          transform: translateX(100%);
+        }
+      }
+
+      .language{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vmax;
+        
+        button{
+          display: flex;
+          width: 100%;
+          border: 0.2vmax solid yellow;
+          cursor: pointer;
+          background-color: var(--blue-hard);
+          color: yellow;
+          img{
+            width: 23%;
+            height: 75%;
+          }
+        }
+      }
+    }
+    
+    .modal-options.show{
+      opacity: 1 !important;
+      visibility:visible !important;
+    }
+  }
+}
