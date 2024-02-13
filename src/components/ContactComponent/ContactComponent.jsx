@@ -1,79 +1,71 @@
 import './ContactComponent.css';
 import { FaCaretDown } from "react-icons/fa";
 import { FaTelegramPlane } from "react-icons/fa";
+import { useState } from 'react';
+
+import axios from 'axios';
+
 
 
 export const ContactComponent = () => {
 
-  const handleSubmit = async (event) => {
-    event.preventDefault(); // Evitar que el formulario se envíe de forma predeterminada
-  
-    // Obtener los valores del formulario
-    const formData = {
-      firstName: event.target.elements.firstName.value,
-      lastName: event.target.elements.lastName.value,
-      email: event.target.elements.email.value,
-      message: event.target.elements.message.value,
-    };
-  
-    // Enviar los datos al servidor Node.js
-    try {
-      const response = await fetch('http://localhost:5000/submit-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-  
-      if (response.ok) {
-        console.log('Data submitted successfully');
-        // Aquí podrías realizar otras acciones después de enviar los datos
-      } else {
-        console.error('Error submitting data:', response.statusText);
-        // Manejar errores, mostrar mensajes al usuario, etc.
-      }
-    } catch (error) {
-      console.error('Error:', error.message);
-    }
+  const [data, setData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios.post('http://127.0.0.1:3001/submit-form', data)
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
 
   return (
     <div className='contacts'>
       <div className="tab"><FaCaretDown /> Contacts</div>
 
-      {/* <form onSubmit={handleSubmit} className="form-contact"> */}
-      <form method='post' onSubmit={handleSubmit} className="form-contact">
+      <form onSubmit={handleSubmit} className="form-contact">
         <div className="title-form">
           <h1>Say hello!</h1>
           <div className="decoration"></div>
         </div>
 
        <label className='first-name'>
-          <input name='firstName' placeholder='First Name' type="text" />
+          <input name='firstName' placeholder='First Name' type="text" onChange={handleInputChange} />
           <p>First Name</p>
         </label>
 
         <label className='Last-name'>
-          <input name='lastName' placeholder='Last Name' type="text" />
+          <input name='lastName' placeholder='Last Name' type="text" onChange={handleInputChange} />
           <p>Last Name</p>
         </label>
 
         <label className='email'>
-          <input name='email' placeholder='Your Email' type="text" />
+          <input name='email' placeholder='Your Email' type="text" onChange={handleInputChange} />
           <p>Your Email</p>
         </label>
 
         <label className='Message'>
-          <textarea name='message' placeholder='Message' />
+          <textarea name='message' placeholder='Message' onChange={handleInputChange} />
           <p>Message</p>
         </label>
-
-
-
-
+        
         <button type="submit"><FaTelegramPlane /> Send Message</button>
 
       </form>
