@@ -39,20 +39,34 @@ app.get('/', (req, res) => {
 app.post('/submit-form', (req, res) => {
   const { firstName, lastName, email, message } = req.body;
 
+
+  if (!firstName || !lastName || !email || !message) {
+    res.status(400).send('Bad Request: All fields must be provided');
+    return;
+  }
+
+
   const sql = 'INSERT INTO users (firstName, lastName, email, message ) VALUES (?, ?, ?, ?)';
-  db.query(sql, [firstName, lastName, email, message ], (err) => {
-    if (err) {
-      console.error(err);
-      res.status(500).send('Internal Server Error');
-    } else {
-      res.status(200).send('Data Saved Successfully');
-    }
+  db.query(sql, [firstName, lastName, email, message ], 
+    (err) => {
+      if (err) {
+        console.error(err);
+  
+        // Check Error Type
+        if (err.code === 'ER_DUP_ENTRY') {
+          res.status(409).send('Conflict: Duplicate entry');
+        } else {
+          res.status(500).send('Internal Server Error');
+        }
+
+      } else {
+        res.status(200).send('Data Saved Successfully');
+      }
+    });
   });
-});
 
 
 //Listening Configuration of the Server
 app.listen(PORT, () => {
   console.log(`Server Listening On http://localhost:${PORT}`);
-  
 });

@@ -1,0 +1,59 @@
+@import '../mixins.scss';
+
+/*------------General----------------------------*/
+
+.footer{
+  @include style-sections;
+  @include flex-center-all;
+  justify-content: space-between;
+  padding: 0.5vw 1vw;
+  width: 100%;
+  height: auto;
+
+  .social-media-container{
+    display: flex;
+    gap: 1.5vw;
+
+    .social-media{
+      background-image: var(--select-character);
+      box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      width: 2.5vw;
+      max-width: 5rem;
+      height: 2.5vw;
+      max-height: 5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: max (1rem, min(2.3vw, 3rem));
+      transition: all 100ms ease-in-out;
+
+      a{
+        @include flex-center-all;
+        color: white;
+      }
+    }
+
+    .social-media:hover{
+      background-image: var(--button-color);
+      transform: scale(1.2);
+    }
+
+    .social-media:active{
+      background-image: var(--button-color-active);
+      transform: scale(1.2);
+      color: black;
+    }
+  }
+
+  .rights{
+    color: white;
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 1.3vmax;
+  }
+
+  .logo{
+    @include style-logo();
+  }
+}
