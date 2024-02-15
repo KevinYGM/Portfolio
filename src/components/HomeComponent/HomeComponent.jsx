@@ -1,7 +1,8 @@
-import myPhoto from '../../assets/myMainPhoto.png';
-import { useEffect, useRef } from 'react';
+//Style File and Hooks
 import './HomeComponent.css';
+import { useEffect, useRef, useState } from 'react';
 
+//Icons
 import { FaPlay } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
@@ -14,12 +15,56 @@ import { FaGraduationCap } from "react-icons/fa6";
 import { MdAddCall } from "react-icons/md";
 import { AiOutlineClose } from "react-icons/ai";
 
+//Images
+import myPhoto from '../../assets/myMainPhoto.png';
 
-export const HomeComponent = ({openModalIndex, setOpenModalIndex}) => {
+//PDF'S
+import curriculum from '../../assets/curriculum-pdf/CV-FRONTEND-KEVIN-GONZALEZ.pdf';
 
+//Data
+import { professions, quotes } from '../../data/home';
+
+
+
+
+
+/*------------------------------Main Component---------------------------------------------------------*/
+export const HomeComponent = ({openModalIndex, setOpenModalIndex, languageEnglish, scrollToSection}) => {
+
+//Local States and Refs
+  const [indexProfessions, setIndexProfessions] = useState(0);
+  const [indexQuotes, setIndexQuotes] = useState(0);
   const timerRef = useRef(null);
 
-  useEffect(() => {
+
+// UseEffects
+
+useEffect(()=>{
+  const changeProfessions = setInterval(()=> {
+    setIndexProfessions((prevIndex) => (prevIndex + 1) % professions.length);
+  }, 30000);
+
+  return () => {
+    clearInterval(changeProfessions);
+  };
+},[indexProfessions]);
+
+
+
+useEffect(()=>{
+  const changeQuotes = setInterval(()=> {
+    setIndexQuotes((prevIndex) => (prevIndex + 1) % quotes.length);
+  }, 15000);
+
+  return () => {
+    clearInterval(changeQuotes);
+  };
+},[indexQuotes]);
+
+
+
+ useEffect(() => {
+  //If you click outside the mobile modal this closes.
     const handleOutsideClick = (event) => {
       const modalMobile = document.getElementById('modal-mobile');
   
@@ -38,10 +83,12 @@ export const HomeComponent = ({openModalIndex, setOpenModalIndex}) => {
     };
   }, [openModalIndex, setOpenModalIndex]);
 
+
+/*---------------------------------COMPONENT JSX----------------------------------------*/
   return (
-    <div className="home">
+    <div id='home' className="home">
 
-
+      {/* Modal Mobile */}
       <div id="modal-mobile" className={`modal-categories ${openModalIndex ? 'show' : ''}`}>
         <div  className="exit"
               onClick={() => setOpenModalIndex(false)}><AiOutlineClose /></div>
@@ -50,45 +97,58 @@ export const HomeComponent = ({openModalIndex, setOpenModalIndex}) => {
         </div>
         <hr />
         <ul>
-          <li><span><TiHome /></span> Home</li>
-          <li><span><IoPersonCircleSharp /></span> About Me</li>
-          <li><span><FaSuitcase /></span> Projects</li>
-          <li><span><FaGraduationCap /></span> Certifications</li>
-          <li><span><MdAddCall /></span> Contact</li>
+          <li onClick={() => scrollToSection('home', 7.8)}><span><TiHome /></span>{languageEnglish ? 'Home' : 'Presentación'}</li>
+          <li onClick={() => scrollToSection('about-me', 13)}><span><IoPersonCircleSharp /></span>{languageEnglish ? 'About Me' : 'Acerca de Mí'}</li>
+          <li onClick={() => scrollToSection('portfolio', 13)}><span><FaSuitcase /></span>{languageEnglish ? 'Projects' : 'Proyectos'}</li>
+          <li onClick={() => scrollToSection('education', 13)}><span><FaGraduationCap /></span>{languageEnglish ? 'Education' : 'Formación'}</li>
+          <li onClick={() => scrollToSection('contact', 13)}><span><MdAddCall /></span>{languageEnglish ? 'Contact' : 'Contacto'}</li>
         </ul>
         <hr />
         <div>
-          <button><FaBookOpen /> Download CV</button>
-          <button><FaPlay /> Watch Video</button>
+          <button>
+            <a  href={curriculum} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                download="Curriculum-Kevin-Gonzalez.pdf"
+                ><FaBookOpen /> {languageEnglish ? 'Download CV' : 'Descargar CV'}
+            </a>
+          </button>
+          <button><FaPlay /> {languageEnglish ? 'Watch Video' : 'Ver Video'}</button>
         </div>
       </div>
 
+
+
+      {/* Main Background */}
       <div className="my-photo-personal">
         <img src={myPhoto} alt="" />
       </div>
       <div className="my-personal-info">
         <div className='text'>
           <h3>Kevin González M.</h3>
-          <h1>Frontend Developer</h1>
-          <p>"If you think that you can, you are already halfway" -Theodore Roosevelt</p>
+          <h1>{languageEnglish ? professions[indexProfessions].name : professions[indexProfessions].nameSpanish}</h1>
+          <p>{languageEnglish ? quotes[indexQuotes].quote : quotes[indexQuotes].quoteSpanish} - {quotes[indexQuotes].author} </p>
         </div>
         
         <div className="container-media">
           <hr />
-          <span><FaLinkedinIn /></span>
-          <span><FaXTwitter /></span>
-          <span><FaGithub /></span>
+          <span><a href="https://www.linkedin.com/in/kevinygm" target="_blank" rel="noreferrer"><FaLinkedinIn /></a></span>
+          <span><a href="https://github.com/KevinYGM" target="_blank" rel="noreferrer"><FaGithub /></a></span>
+          <span><a href="https://twitter.com/Kevin_YGM" target="_blank" rel="noreferrer"><FaXTwitter /></a></span>
           <hr />
         </div>
       </div>
+
+
       
+      {/* Line Decoration */}
       <div className='frame-decoration'>
         <div className="container-frame">
           <button className='play-video'><FaPlay /></button>
         </div>
       </div>
-    
 
+      {/* background logo */}
       <div className="logo-background">
         <span><strong>KYGM APP</strong><strong>KYGM APP</strong><strong>KYGM APP</strong></span>
         <span><strong>KYGM APP</strong><strong>KYGM APP</strong><strong>KYGM APP</strong></span>

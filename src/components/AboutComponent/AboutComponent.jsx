@@ -1,6 +1,8 @@
+//Style File and Hooks
 import './AboutComponent.css';
+import { useEffect, useState } from 'react';
 
-import myPhotoAbout from '../../assets/myPhotoAboutMe.png';
+//Icons
 import { FaCaretDown } from "react-icons/fa";
 import { BiRename } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
@@ -13,44 +15,149 @@ import { FaCss3Alt } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { SiVite } from "react-icons/si";
 import { FaReact } from "react-icons/fa";
+import { SiMysql } from "react-icons/si";
+import { FaNode } from "react-icons/fa";
 
-export const AboutComponent = () => {
+//Images
+import myPhotoAbout from '../../assets/myPhotoAboutMe.png';
+
+//PDF'S
+import curriculum from '../../assets/curriculum-pdf/CV-FRONTEND-KEVIN-GONZALEZ.pdf';
+
+//Data
+import { aboutMe } from '../../data/description';
+
+
+
+
+
+/*------------------------------Main Component---------------------------------------------------------*/
+export const AboutComponent = ({languageEnglish, scrollToSection }) => {
+
+
+//Local States and Refs
+  const [isFirstTime, setIsFirstTime] = useState(true);
+  
+  const [age, setAge] = useState({
+    years: 0,
+    months: 0,
+    days: 0,
+    hours: 0,
+    minutes: 0
+  });
+
+
+  //Functions
+
+  const calculateAge = (birthdate) => {
+    const birthDate = new Date(birthdate);
+    const currentDate = new Date();
+
+    const totalMilliseconds = currentDate - birthDate;
+
+    const years = Math.floor(totalMilliseconds / (365.25 * 24 * 60 * 60 * 1000));
+    const remainingMilliseconds = totalMilliseconds % (365.25 * 24 * 60 * 60 * 1000);
+
+    const months = Math.floor(remainingMilliseconds / (30.44 * 24 * 60 * 60 * 1000));
+    const remainingMonthsMilliseconds = remainingMilliseconds % (30.44 * 24 * 60 * 60 * 1000);
+
+    const days = Math.floor(remainingMonthsMilliseconds / (24 * 60 * 60 * 1000));
+    const remainingDaysMilliseconds = remainingMonthsMilliseconds % (24 * 60 * 60 * 1000);
+
+    const hours = Math.floor(remainingDaysMilliseconds / (60 * 60 * 1000));
+    const remainingHoursMilliseconds = remainingDaysMilliseconds % (60 * 60 * 1000);
+
+    const minutes = Math.floor(remainingHoursMilliseconds / (60 * 1000));
+
+    setAge({
+      years,
+      months,
+      days,
+      hours,
+      minutes,
+    });
+  }
+
+   const formatTimeUnit = (value) => {
+    //Function to add a leading zero if necessary
+    return value < 10 ? `0${value}` : value;
+  };
+
+
+ //UseEffects 
+
+  useEffect(() => {
+    if (isFirstTime){
+      calculateAge('1993-06-19T12:30:00')
+      setIsFirstTime(false);
+    }
+      
+    const updateAge = setInterval(() => {
+      calculateAge('1993-06-19T12:30:00');
+    }, 60000)
+
+    return () => {
+      clearInterval(updateAge);
+    };
+    
+  }, [age]);
+
+
+
+ /*---------------------------------COMPONENT JSX----------------------------------------*/ 
   return (
-    <div className='about-me'>
+    <div id='about-me' className='about-me'>
 
-      <div className="tab"><FaCaretDown /> About Me</div>
+      {/* Tab Category */}
+      <div onClick={() => scrollToSection('about-me', 13)} className="tab"><FaCaretDown />{languageEnglish ? 'About Me' : 'Acerca de mí'}</div>
       <div className="frame-texture"></div>
 
+
+
+      {/* Section of Photo (Only Desktops and Laptops) */}
       <div className="photo">
         <img src={myPhotoAbout} alt="Photo in Lima" />
-        <button><FaBookOpen /> Download CV</button>
+        <button>
+          <a  href={curriculum} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              download="Curriculum-Kevin-Gonzalez.pdf">
+                <FaBookOpen /> {languageEnglish ? 'Download CV' : 'Descargar CV'}
+          </a>
+        </button>
       </div>
 
+
+
+      {/* Main Section */}
       <div className="container-info">
         <div className="info">
           <div className="presentation">
-            <button><FaBookOpen /> Download CV</button>
-            <h2>Who am I? </h2>
+            <button><FaBookOpen />{languageEnglish ? 'Download CV' : 'Descargar CV'}</button>
+            <h2>{languageEnglish ? 'Who am I?' : '¿Quien Soy Yo?'}</h2>
             
           </div>
-          <h3>I'm Kevin González</h3>
-          <p>Personally, I am very proactive, friendly, very
-          organized and responsible. I have a lot of experience in work
-          related to soft skills, such as sales, however,
-          I am currently deeply interested in entering the
-          world of the Technological Industry, for which I have prepared
-          as a Frontend Developer, with a variety of courses and projects
-          especially with React, knowledge with which I seek to consolidate myself within programming.
-          </p>
+          <h3>{languageEnglish ? 'I am Kevin González' : 'Soy Kevin González'}</h3>
+          <p>{languageEnglish ? aboutMe.description : aboutMe.descriptionSpanish}</p>
           <hr />
           <div className="resume">
             <span><BiRename /> Kevin Y. González M.</span>
-            <span><FaRegCalendarAlt /> 30 Years, 6 Months, 27 Days </span>
+            <span className='birth'>
+              <FaRegCalendarAlt /> 
+              <span>{age.years}{languageEnglish ? ' Years' : ' Años'}</span>
+              <span>{age.months}{languageEnglish ? ' Months' : ' Meses'}</span>
+              <span>{age.days}{languageEnglish ? ' Days' : ' Días'}</span>
+              <div className="hours">
+                {formatTimeUnit(age.hours)}:
+                {formatTimeUnit(age.minutes)}
+              </div>
+            </span>
+            
             <span><FaLocationDot /> Lima, Perú</span>
             <span><MdAlternateEmail /> kvngonzalez35@gmail.com</span>
           </div>
           <div className="skill">
-            <h2>Professional Skill:</h2>
+            <h2>{languageEnglish ? 'Professional Skills' : 'Habilidades Profesionales'}</h2>
             <div className="container-skill">
               <div className='react'><strong><FaReact /></strong><span>React JS</span></div>
               <div className='vite'><strong><SiVite /></strong><span>Vite JS</span></div>
@@ -58,11 +165,11 @@ export const AboutComponent = () => {
               <div className='sass'><strong><FaSass /></strong><span>Sass</span></div>
               <div className='css'><strong><FaCss3Alt /></strong><span>CSS</span></div>
               <div className='git'><strong><FaGitAlt /></strong><span>GIT</span></div>
+              <div className='node'><strong><FaNode /></strong><span>Node JS</span></div>
+              <div className='mysql'><strong><SiMysql /></strong><span>MySQL</span></div>
             </div>
          </div>
         </div>
-        
-        
       </div>
     </div>
   )

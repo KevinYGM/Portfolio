@@ -1,4 +1,7 @@
+//Hooks
 import React, { useState } from 'react';
+
+//Components
 import { PortFolioComponent } from './components/PortfolioComponent/PortFolioComponent';
 import { HomeComponent } from './components/HomeComponent/HomeComponent';
 import { AboutComponent } from './components/AboutComponent/AboutComponent';
@@ -11,26 +14,57 @@ import { TrainingComponent } from './components/TrainingComponent/TrainingCompon
 
 function App() {
 
+//States 
   const [openModalIndex, setOpenModalIndex] = useState(false);
   const [languageEnglish, setLanguageEnglish] = useState(true);
+
+
+//Function to manage links to sections of the page, also controls the height of the scroll.
+const scrollToSection = (idSection, offsetVmin = 0) => {
+      const element = document.getElementById(idSection);
+      
+      if (element) {
+        const windowHeight = window.innerHeight;
+        const offsetPixels = (offsetVmin * Math.min(window.innerWidth, windowHeight)) / 100;
+        const offsetTop = element.offsetTop - offsetPixels;
+    
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth',
+        });
+      }
+    };
  
 
+
+/*---------------------------------COMPONENT JSX----------------------------------------*/ 
   return (
     <>
       <NavComponent
             openModalIndex = { openModalIndex }
             setOpenModalIndex = { setOpenModalIndex }
-            setLanguageEnglish = { setLanguageEnglish } />
+            languageEnglish = { languageEnglish }
+            setLanguageEnglish = { setLanguageEnglish }
+            scrollToSection = { scrollToSection } />
       <HomeComponent
             openModalIndex = { openModalIndex }
-            setOpenModalIndex = { setOpenModalIndex } />
-      <AboutComponent />
+            setOpenModalIndex = { setOpenModalIndex }
+            languageEnglish = { languageEnglish }
+            scrollToSection = { scrollToSection } />
+      <AboutComponent 
+            languageEnglish = { languageEnglish }
+            scrollToSection = { scrollToSection } />
       <PortFolioComponent
-            languageEnglish = { languageEnglish }/>
+            languageEnglish = { languageEnglish }
+            scrollToSection = { scrollToSection } />
       <TrainingComponent 
-            languageEnglish = { languageEnglish }  />
-      <ContactComponent />
-      <FooterComponent />
+            languageEnglish = { languageEnglish }
+            scrollToSection = { scrollToSection } />
+      <ContactComponent
+             languageEnglish = { languageEnglish } 
+             scrollToSection = { scrollToSection } />
+      <FooterComponent
+             languageEnglish = { languageEnglish }/>
     </>
   )
 }

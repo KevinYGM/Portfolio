@@ -1,13 +1,15 @@
+//Style File and Hooks
 import './PortFolioComponent.css';
 import { useEffect, useState } from 'react';
-import { otherProjectsDate, projectsHightlights } from '../../data/projects';
 
+//Icons
 import { FaCaretDown } from "react-icons/fa";
 import { PiArrowFatLinesUpBold } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";
 import { BsCaretLeftSquareFill } from "react-icons/bs";
 import { BsCaretRightSquareFill } from "react-icons/bs";
 
+//Icons Technologies
 import { FiGithub } from "react-icons/fi";
 import { SiCreatereactapp } from "react-icons/si";
 import { IoLogoJavascript } from "react-icons/io";
@@ -17,8 +19,15 @@ import { FaGitAlt } from "react-icons/fa";
 import { TiHtml5 } from "react-icons/ti";
 import { SiCanva } from "react-icons/si";
 
+//Data
+import { otherProjectsDate, projectsHightlights } from '../../data/projects';
 
-export const PortFolioComponent = ({ languageEnglish }) => {
+
+
+/*------------------------------Main Component---------------------------------------------------------*/
+export const PortFolioComponent = ({ languageEnglish, scrollToSection }) => {
+
+  //Local States and Refs
   const [hightlights, setHighlights] = useState(true);
   const [otherProjects, setOtherProjects] = useState(false);
   const [viewHightlights, setViewHightlights] = useState(false);
@@ -26,8 +35,13 @@ export const PortFolioComponent = ({ languageEnglish }) => {
   const [indexPhoto, setIndexPhoto] = useState(0);
   const [isFixed, setIsFixed] = useState(false);
 
+
+  //Functions
+
   const changePhotoVisible = (address) => {
-    address === "advance" ? setIndexPhoto((prevIndex) => (prevIndex + 1)  % projectSelected.photos.length) : setIndexPhoto((prevIndex) => (prevIndex - 1 + projectSelected.photos.length ) % projectSelected.photos.length);
+    address === "advance" 
+    ? setIndexPhoto((prevIndex) => (prevIndex + 1)  % projectSelected.photos.length) 
+    : setIndexPhoto((prevIndex) => (prevIndex - 1 + projectSelected.photos.length ) % projectSelected.photos.length);
   }
 
   const viewProject = (project) => {
@@ -71,6 +85,8 @@ export const PortFolioComponent = ({ languageEnglish }) => {
     }
   }
 
+  //UseEffects
+
   useEffect(() => {
     const handleScroll = () => {
       const categoriesNormal = document.querySelector('.portfolio');
@@ -78,12 +94,15 @@ export const PortFolioComponent = ({ languageEnglish }) => {
       const sectionHeight = categoriesNormal.offsetHeight;
   
       // Ajustar este valor para cambiar cuándo se activa la posición fija
+      // Set this value to change when the fixed position is activated
       const offset = 200;
   
       // Calcular la posición final de la sección con un pequeño offset
+      // Calculate the final position of the section with a small offset
       const sectionBottom = categoriesNormal.offsetTop + sectionHeight - offset;
   
       // Verificar si la posición de desplazamiento está dentro de la sección
+      // Check if the scroll position is inside the section
       const isScrolledIntoSection = scrollPosition >= categoriesNormal.offsetTop && scrollPosition <= sectionBottom;
   
       setIsFixed(isScrolledIntoSection);
@@ -95,13 +114,17 @@ export const PortFolioComponent = ({ languageEnglish }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   
-  }, [])
+  }, []);
 
 
-
+/*---------------------------------COMPONENT JSX----------------------------------------*/ 
   return (
-    <div className="portfolio">
-      <div className="tab"><FaCaretDown />{languageEnglish ? "Projects" : "Proyectos"}</div>
+    <div id= 'portfolio' className="portfolio">
+
+      {/* Tab Category */}
+      <div onClick={() => scrollToSection('portfolio', 13)} className="tab"><FaCaretDown />{languageEnglish ? "Projects" : "Proyectos"}</div>
+
+      {/* Section categories (Buttons) */}
       <div className="categories-projects">
         <button   style={{background: hightlights ? 'red' : 'yellow', color: hightlights ? 'white' : 'black'}}
                   onClick={()=>{setHighlights(true), setOtherProjects(false)}}
@@ -123,9 +146,10 @@ export const PortFolioComponent = ({ languageEnglish }) => {
                    >{languageEnglish ? "Other Projects" : "Otros Proyectos"}</button>
        </div>
       )}
-     
 
 
+
+      {/* Container HightLights */}
       <div className={`container-hightlights ${!hightlights ? 'hide' : ''}`}>
 
         {projectsHightlights.map((project, index) => (
@@ -152,7 +176,7 @@ export const PortFolioComponent = ({ languageEnglish }) => {
       </div>
       
 
-      
+      {/* Container other Projects */}
       <div className={`container-other-projects ${!otherProjects ? 'hide' : ''}`}>
         {otherProjectsDate.map((project, index) => (
           <div key={index} className="other-projects">
@@ -185,7 +209,7 @@ export const PortFolioComponent = ({ languageEnglish }) => {
 
 
 
-
+        {/* HightLights Viewer */}
         {viewHightlights && (
           <div className="modal-hightlights">
           <div className="modal">
@@ -216,7 +240,6 @@ export const PortFolioComponent = ({ languageEnglish }) => {
               </button>
             </div>
           </div>
-        </div>
-      )}
-      </div>)
-  }
+        </div>)}
+    </div>
+  )}

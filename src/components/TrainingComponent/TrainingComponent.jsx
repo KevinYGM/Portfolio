@@ -1,64 +1,91 @@
+//Style File and Hooks
 import './TrainingComponent.css';
-import { FaCaretDown } from "react-icons/fa";
-import imgIUT from '../../assets/iut.png';
-import { certificationsData } from '../../data/certifications';
+import { useEffect, useState } from 'react';
 
+//Icons
 import { BsCaretLeftSquareFill } from "react-icons/bs";
 import { BsCaretRightSquareFill } from "react-icons/bs";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa6";
-import { useEffect, useState } from 'react';
+import { FaCaretDown } from "react-icons/fa";
+
+//Images
+import imgIUT from '../../assets/iut.png';
+
+//Data
+import { certificationsData } from '../../data/certifications';
 
 
 
+/*------------------------------Main Component---------------------------------------------------------*/
 
-export const TrainingComponent = ({ languageEnglish }) => {
+export const TrainingComponent = ({ languageEnglish, scrollToSection }) => {
 
+   //Local States and Refs
   const [viewCertifications, setViewCertifications] = useState(false);
   const [certificationSelected, setCertificatioSelected] = useState({});
   const [indexCertifications, SetIndexCertifications] = useState(0);
-
   const [searchValue, setSearchValue] = useState("");
 
+
+  //Functions
   const reversedCertificationsData = [...certificationsData].reverse();
 
   const selectCertification = (certification) => {
+    //Function to Process Certification selected
     setCertificatioSelected(certification);
     setViewCertifications(true);
   }
 
+  
   const getValue = (e) => {
+    //Function to Process search value
     setSearchValue(e.target.value);
   }
   
+
   const filterCertifications = (certification, searchValue) => {
+    //function to be able to perform searches without importing capital letters and accents.
     const normalizeString = (str) => str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     const nameCertification = (certification.name + ' ' + certification.nameSpanish);
     const normalizedName = normalizeString(nameCertification).toLowerCase();
     const normalizedSearchValue = normalizeString(searchValue).toLowerCase();
 
     return normalizedName.includes(normalizedSearchValue);
-};
+  };
 
-    const filteredCertifications = reversedCertificationsData.filter(
-      (certification) => filterCertifications(certification, searchValue));
-    
-    const changeCertification = (address) => {
-      address === "advance" ? SetIndexCertifications((prevIndex) => (prevIndex + 1)  % filteredCertifications.length) : SetIndexCertifications((prevIndex) => (prevIndex - 1 + filteredCertifications.length ) % filteredCertifications.length);
-      
-    }
 
+  //function to show the certifications filtered
+  const filteredCertifications = reversedCertificationsData.filter(
+    (certification) => filterCertifications(certification, searchValue));
+  
+
+  const changeCertification = (address) => {
+    //function to show the certification next
+    address === "advance" 
+    ? SetIndexCertifications((prevIndex) => (prevIndex + 1)  % filteredCertifications.length) 
+    : SetIndexCertifications((prevIndex) => (prevIndex - 1 + filteredCertifications.length ) % filteredCertifications.length);
+  }
+
+
+    //UseEffects
     useEffect(()=>{
       setCertificatioSelected(filteredCertifications[indexCertifications]);
     },[indexCertifications])
 
- 
+
+
+
+ /*---------------------------------COMPONENT JSX----------------------------------------*/ 
   return (
-    <div className="education">
-      <div className="tab"><FaCaretDown />{languageEnglish ? "Education" : "Formación"}</div>
+    <div id='education' className="education">
+
+      {/* Tab Category */}
+      <div onClick={() => scrollToSection('education', 13)} className="tab"><FaCaretDown />{languageEnglish ? "Education" : "Formación"}</div>
       
+      {/* Section University */}
       <div className="university-degrees">
         <h1>{languageEnglish ? "University Degrees" : "Títulos Universitarios"}</h1>
         <div className="degree">
@@ -89,6 +116,8 @@ export const TrainingComponent = ({ languageEnglish }) => {
       </div>
 
       
+
+      {/* Section Certifications */}
       <div className="certifications">
         <h1>{languageEnglish ? "Certifications" : "Certificaciones"}</h1>
 
@@ -120,9 +149,10 @@ export const TrainingComponent = ({ languageEnglish }) => {
               ))
             )}
           </div>
-
-          
         </div>
+
+
+        {/* Section Certifications Viewer */}
         {viewCertifications && (
           <div className="modal-certifications">
             <div className="modal">
@@ -135,8 +165,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
                 <button onClick={() => changeCertification("back")}><BsCaretLeftSquareFill /></button>
               </div>
             </div>
-           </div>
-          )}
+          </div>)}
       </div>
     </div>
   )
