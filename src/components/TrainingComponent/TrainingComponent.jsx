@@ -91,7 +91,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
           
           <div className="degree">
             <aside className="photo">
-              <img src={imgIUT} alt="" />
+              <img loading="lazy" src={imgIUT} alt="" />
             </aside>
             <article className="info">
               <h2>{languageEnglish ? "Informatic Engineering" : "Ingeniería en Informática"}</h2>
@@ -102,7 +102,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
 
           <div className="degree">
             <aside className="photo">
-              <img src={imgIUT} alt="" />
+              <img loading="lazy" src={imgIUT} alt="" />
             </aside>
             <article className="info">
               <h2>{languageEnglish ? "Informatic Superior Technical" : "Técnico Superior en Informática"}</h2>
@@ -135,7 +135,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
                 (filteredCertifications.map((certification, index) => (
                   <div key={index} className="item">
                     <div className="img">
-                      <img src={certification.imageCompany} alt="image Company" />
+                      <img loading="lazy" src={certification.imageCompany} alt="image Company" />
                     </div>
                     <div className="info">
                       <h2>{languageEnglish ? certification.name : certification.nameSpanish}</h2>
@@ -143,7 +143,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
                       <p>{languageEnglish ? certification.date : certification.dateSpanish}</p>
                     </div>
                     <div onClick={() => selectCertification(certification)} className="watch-certification">
-                      <img src={certification.imageCertification} alt="Certification" />
+                      <img loading="lazy" src={certification.imageCertification} alt="Certification" />
                       <strong><FaExternalLinkAlt />{languageEnglish ? "Watch" : "Ver"}</strong>
                     </div>
                   </div>
@@ -162,7 +162,7 @@ export const TrainingComponent = ({ languageEnglish }) => {
                 <div className="title-certification"><strong>{languageEnglish ? certificationSelected.name : certificationSelected.nameSpanish}</strong></div>
                 <div className="image-certification">
                   <button onClick={() => changeCertification("advance")}><RiArrowRightDoubleLine /></button>
-                  <img src={certificationSelected.imageCertification} alt="Photo of the Certification" />
+                  <img loading="lazy" src={certificationSelected.imageCertification} alt="Photo of the Certification" />
                   <button onClick={() => changeCertification("back")}><RiArrowLeftDoubleLine /></button>
                 </div>
               </div>

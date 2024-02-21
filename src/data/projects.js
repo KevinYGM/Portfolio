@@ -61,8 +61,8 @@ export const projectsHightlights = [
     linkWebsite: "https://kevinygm.github.io/Keyboard-Tester-React-2/",
     skills: ["react", "create-react-app", "javascript", "css", "html", "git"],
     photos: [imgktr1, imgktr2, imgktr3],
-    descriptionEnglish: "First project carried out with React, it is an app that simulates the appearance of a common keyboard, in this case with distribution in Spanish, where the user will be able to test each key in detail, being able to precisely detect if any of them are failing, it also has As added functions, the ability to tell you which was the last key that was pressed, as well as detect if the caps lock is active or inactive.",
-    descriptionSpanish: "Primer proyecto realizado con React, es una app, que simula la apariencia de un teclado común, en este caso con distribución en español, en donde el usuario podrá probar detalladamente cada tecla, pudiendo detectar de forma precisa si alguna está fallando, además tiene como funciones agregadas la capacidad de indicarte cual fue la ultima tecla que fue pulsada, así como tambien, detectar si el bloqueo de mayúsculas está activo o inactivo.",
+    descriptionEnglish: "First project carried out with React, it is an app that simulates the appearance of a common keyboard, in this case with distribution in Spanish, where the user will be able to test each key in detail, being able to precisely detect if any is failing, it also has As added functions, the ability to tell you which was the last key that was pressed, as well as detect if the caps lock is active or inactive (Responsive Design not Optimized for cell phones).",
+    descriptionSpanish: "Primer proyecto realizado con React, es una app, que simula la apariencia de un teclado común, en este caso con distribución en español, en donde el usuario podrá probar detalladamente cada tecla, pudiendo detectar de forma precisa si alguna está fallando, además tiene como funciones agregadas la capacidad de indicarte cual fue la ultima tecla que fue pulsada, así como tambien, detectar si el bloqueo de mayúsculas está activo o inactivo (Diseño Responsivo no Optimizado para celulares).",
   },
 
   {
@@ -73,8 +73,8 @@ export const projectsHightlights = [
     linkWebsite: "https://kevinygm.github.io/MOKEPON/",
     skills: ["javascript", "css", "html", "git"],
     photos: [imgMokepon1, imgMokepon2, imgMokepon3, imgMokepon4, imgMokepon5],
-    descriptionEnglish: "First Project made with pure javascript, it is a game where you can select your character, whether fire, water or plant type, and you can fight against the computer, with a logic similar to rock, paper or scissors, the project was temporarily discontinued for being able to dedicate myself to learning other technologies.",
-    descriptionSpanish: "Primer Proyecto realizado con javascript puro, es un juego donde puedes seleccionar tu personaje, ya sea de tipo fuego, agua o planta, y puedes combatir contra la computadora, con una lógica similar al piedra, papel o tijeras, el proyecto fue descontinuado temporalmente para poder dedicarme a aprender otras tecnologías.",
+    descriptionEnglish: "First Project made with pure javascript, it is a game where you can select your character, whether fire, water or plant type, and you can fight against the computer, with a logic similar to rock, paper or scissors, the project was temporarily discontinued for being able to dedicate myself to learning other technologies (Responsive Design not Optimized for cell phones).",
+    descriptionSpanish: "Primer Proyecto realizado con javascript puro, es un juego donde puedes seleccionar tu personaje, ya sea de tipo fuego, agua o planta, y puedes combatir contra la computadora, con una lógica similar al piedra, papel o tijeras, el proyecto fue descontinuado temporalmente para poder dedicarme a aprender otras tecnologías (Diseño Responsivo no Optimizado para celulares).",
   },
 
   {

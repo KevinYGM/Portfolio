@@ -93,7 +93,7 @@ useEffect(()=>{
         <div  className="exit"
               onClick={() => setOpenModalIndex(false)}><AiOutlineClose /></div>
         <div className="image-modal">
-          <img src={myPhoto} alt="" />
+          <img loading="lazy" src={myPhoto} alt="Photo Mobile" />
         </div>
         <h2>Kevin Y. González M.</h2>
         <hr />
@@ -122,7 +122,7 @@ useEffect(()=>{
 
       {/* Main Background */}
       <div className="my-photo-personal">
-        <img src={myPhoto} alt="" />
+        <img loading="lazy" src={myPhoto} alt="Presentation Photo" />
       </div>
       <div className="my-personal-info">
         <div className='text'>

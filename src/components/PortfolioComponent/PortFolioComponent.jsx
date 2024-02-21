@@ -159,7 +159,7 @@ export const PortFolioComponent = ({ languageEnglish }) => {
               <strong>{project.year}</strong>
             </div>
             <div className="photo-project">
-              <img src={project.photos[0]} alt="Main photo of project" />
+              <img loading="lazy" src={project.photos[0]} alt="Main photo of project" />
             </div>
             <strong>{languageEnglish ? "Skills" : "Habilidades"}</strong>
             <div className="container-skills">
@@ -185,7 +185,7 @@ export const PortFolioComponent = ({ languageEnglish }) => {
               <strong>{project.year}</strong>
             </div>
             <div className="photo-project">
-              <img src={project.photos} alt="Main photo of this project" />
+              <img loading="lazy" src={project.photos} alt="Main photo of this project" />
             </div>
             
             <div className="container-skills">
@@ -219,7 +219,7 @@ export const PortFolioComponent = ({ languageEnglish }) => {
               <div className="title-project"><strong>{languageEnglish ? projectSelected.name: projectSelected.nameSpanish}</strong><strong>{projectSelected.year}</strong></div>
               <div className="photo-project">
                 <button onClick={() => changePhotoVisible("advance")}><RiArrowRightDoubleLine/></button>
-                <img src={projectSelected.photos[indexPhoto]} alt="Photo Visible of the Project" />
+                <img loading="lazy" src={projectSelected.photos[indexPhoto]} alt="Photo Visible of the Project" />
               <button onClick={() => changePhotoVisible("back")}><RiArrowLeftDoubleLine /></button>
               </div>
 

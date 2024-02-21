@@ -111,7 +111,7 @@ export const AboutComponent = ({ languageEnglish }) => {
       
       {/* Section of Photo (Only Desktops and Laptops) */}
       <div className="photo">
-        <img src={myPhotoAbout} alt="Photo in Lima" />
+        <img  loading="lazy" src={myPhotoAbout} alt="Photo Personal" />
         <button>
           <a  href={curriculum} 
               target="_blank" 
