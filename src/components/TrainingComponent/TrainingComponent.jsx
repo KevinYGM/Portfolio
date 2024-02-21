@@ -3,13 +3,12 @@ import './TrainingComponent.css';
 import { useEffect, useState } from 'react';
 
 //Icons
-import { BsCaretLeftSquareFill } from "react-icons/bs";
-import { BsCaretRightSquareFill } from "react-icons/bs";
+import { RiArrowLeftDoubleLine } from "react-icons/ri";
+import { RiArrowRightDoubleLine } from "react-icons/ri";
 import { AiOutlineClose } from "react-icons/ai";
 import { FaSearch } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa6";
-import { FaCaretDown } from "react-icons/fa";
 
 //Images
 import imgIUT from '../../assets/iut.png';
@@ -21,7 +20,7 @@ import { certificationsData } from '../../data/certifications';
 
 /*------------------------------Main Component---------------------------------------------------------*/
 
-export const TrainingComponent = ({ languageEnglish, scrollToSection }) => {
+export const TrainingComponent = ({ languageEnglish }) => {
 
    //Local States and Refs
   const [viewCertifications, setViewCertifications] = useState(false);
@@ -82,90 +81,93 @@ export const TrainingComponent = ({ languageEnglish, scrollToSection }) => {
   return (
     <div id='education' className="education">
 
-      {/* Tab Category */}
-      <div onClick={() => scrollToSection('education', 13)} className="tab"><FaCaretDown />{languageEnglish ? "Education" : "Formación"}</div>
-      
-      {/* Section University */}
-      <div className="university-degrees">
-        <h1>{languageEnglish ? "University Degrees" : "Títulos Universitarios"}</h1>
-        <div className="degree">
-          <aside className="photo">
-            <img src={imgIUT} alt="" />
-          </aside>
-          <article className="info">
-            <h2>{languageEnglish ? "Informatic Engineering" : "Ingeniería en Informática"}</h2>
-            <h4>I.U.T. de los Llanos - Venezuela</h4>
-            <p>{languageEnglish ? "April 2014" : "Abril 2014"}</p>
-          </article>
-        </div>
+      <h2 className="title">{languageEnglish ? 'Education.' : 'Formación.'}</h2>
 
-        <div className="degree">
-          <aside className="photo">
-            <img src={imgIUT} alt="" />
-          </aside>
-          <article className="info">
-            <h2>{languageEnglish ? "Informatic Superior Technical" : "Técnico Superior en Informática"}</h2>
-            <h4>I.U.T. de los Llanos - Venezuela</h4>
-            <p>{languageEnglish ? "July 2012" : "Julio 2012"}</p>
-          </article>
-        </div>
+      <div className="container">
+        
+        {/* Section University */}
+        <div className="university-degrees">
+          <h2 className="subtitle">{languageEnglish ? "University Degrees" : "Títulos Universitarios"}</h2>
+          
+          <div className="degree">
+            <aside className="photo">
+              <img src={imgIUT} alt="" />
+            </aside>
+            <article className="info">
+              <h2>{languageEnglish ? "Informatic Engineering" : "Ingeniería en Informática"}</h2>
+              <h4>I.U.T. de los Llanos - Venezuela</h4>
+              <p>{languageEnglish ? "April 2014" : "Abril 2014"}</p>
+            </article>
+          </div>
 
-        <div className="icon-decoration">
-          <span><FaGraduationCap /></span>
-        </div>
-      </div>
+          <div className="degree">
+            <aside className="photo">
+              <img src={imgIUT} alt="" />
+            </aside>
+            <article className="info">
+              <h2>{languageEnglish ? "Informatic Superior Technical" : "Técnico Superior en Informática"}</h2>
+              <h4>I.U.T. de los Llanos - Venezuela</h4>
+              <p>{languageEnglish ? "July 2012" : "Julio 2012"}</p>
+            </article>
+          </div>
 
-      
-
-      {/* Section Certifications */}
-      <div className="certifications">
-        <h1>{languageEnglish ? "Certifications" : "Certificaciones"}</h1>
-
-        <div className="container-all-certifications">
-          <div className="search">
-              <span><FaSearch /></span>
-              <input onChange={(e) => getValue(e)} placeholder={languageEnglish ? "Search Certifications" : "Buscar Certificaciones" } type="text" />
-            </div>
-
-          <div className="all-certifications">
-            {filteredCertifications.length === 0 ? (
-              <p>{languageEnglish ? "No results found..." : "No se han encontrado resultados..."}</p>) 
-              : 
-              (filteredCertifications.map((certification, index) => (
-                <div key={index} className="item">
-                  <div className="img">
-                    <img src={certification.imageCompany} alt="image Company" />
-                  </div>
-                  <div className="info">
-                    <h2>{languageEnglish ? certification.name : certification.nameSpanish}</h2>
-                    <h4>{certification.company}</h4>
-                    <p>{languageEnglish ? certification.date : certification.dateSpanish}</p>
-                  </div>
-                  <div onClick={() => selectCertification(certification)} className="watch-certification">
-                    <img src={certification.imageCertification} alt="Certification" />
-                    <strong><FaExternalLinkAlt />{languageEnglish ? "Watch" : "Ver"}</strong>
-                  </div>
-                </div>
-              ))
-            )}
+          <div className="icon-decoration">
+            <span><FaGraduationCap /></span>
           </div>
         </div>
 
+        
 
-        {/* Section Certifications Viewer */}
-        {viewCertifications && (
-          <div className="modal-certifications">
-            <div className="modal">
-              <div className="exit" 
-                  onClick={() => setViewCertifications(false)}><AiOutlineClose /></div>
-              <div className="title-certification"><strong>{languageEnglish ? certificationSelected.name : certificationSelected.nameSpanish}</strong></div>
-              <div className="image-certification">
-                <button onClick={() => changeCertification("advance")}><BsCaretRightSquareFill /></button>
-                <img src={certificationSelected.imageCertification} alt="Photo of the Certification" />
-                <button onClick={() => changeCertification("back")}><BsCaretLeftSquareFill /></button>
+        {/* Section Certifications */}
+        <div className="certifications">
+          <h2 className="subtitle">{languageEnglish ? "Certifications" : "Certificaciones"}</h2>
+
+          <div className="container-all-certifications">
+            <div className="search">
+                <span><FaSearch /></span>
+                <input onChange={(e) => getValue(e)} placeholder={languageEnglish ? "Search Certifications" : "Buscar Certificaciones" } type="text" />
               </div>
+
+            <div className="all-certifications">
+              {filteredCertifications.length === 0 ? (
+                <p>{languageEnglish ? "No results found..." : "No se han encontrado resultados..."}</p>) 
+                : 
+                (filteredCertifications.map((certification, index) => (
+                  <div key={index} className="item">
+                    <div className="img">
+                      <img src={certification.imageCompany} alt="image Company" />
+                    </div>
+                    <div className="info">
+                      <h2>{languageEnglish ? certification.name : certification.nameSpanish}</h2>
+                      <h4>{certification.company}</h4>
+                      <p>{languageEnglish ? certification.date : certification.dateSpanish}</p>
+                    </div>
+                    <div onClick={() => selectCertification(certification)} className="watch-certification">
+                      <img src={certification.imageCertification} alt="Certification" />
+                      <strong><FaExternalLinkAlt />{languageEnglish ? "Watch" : "Ver"}</strong>
+                    </div>
+                  </div>
+                ))
+              )}
             </div>
-          </div>)}
+          </div>
+
+
+          {/* Section Certifications Viewer */}
+          {viewCertifications && (
+            <div className="modal-certifications">
+              <div className="modal">
+                <div className="exit" 
+                    onClick={() => setViewCertifications(false)}><AiOutlineClose /></div>
+                <div className="title-certification"><strong>{languageEnglish ? certificationSelected.name : certificationSelected.nameSpanish}</strong></div>
+                <div className="image-certification">
+                  <button onClick={() => changeCertification("advance")}><RiArrowRightDoubleLine /></button>
+                  <img src={certificationSelected.imageCertification} alt="Photo of the Certification" />
+                  <button onClick={() => changeCertification("back")}><RiArrowLeftDoubleLine /></button>
+                </div>
+              </div>
+            </div>)}
+        </div>
       </div>
     </div>
   )

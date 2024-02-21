@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   z-index: 7;
-  background: var(--blue-soft);
+  background: linear-gradient(to left, #af0505d7, #500000ce); 
   color: white;
   font-weight: 800;
   width: 100%;
@@ -37,13 +37,18 @@
     justify-content: center;
     gap: 1vmax;
     li{
-      @include style-logo();
-      padding-right: 1vmax;
+      font-family: "Protest Riot", sans-serif;
       list-style: none;
-      border-right: 0.1vmax solid rgb(10, 67, 105);
+      font-size: clamp( 1.2rem, 1.8vmax ,5rem);
+       cursor: pointer;
+       transition: all 300ms ease-in-out;
     }
     li:last-child{
       border-right: 0.1vmax solid transparent;
+    }
+
+    li:hover{
+      color: var(--guardsman-red-200);
     }
   }
 
@@ -51,6 +56,10 @@
   .options{
     cursor: pointer;
     font-size: 1.5vmax;
+
+    span{
+      font-family: "Protest Riot", sans-serif;
+    }
 
     .modal-options{
       position: absolute;
@@ -61,38 +70,13 @@
       top: 100%;
       right: 0;
       width: 15vmax;
-      height: 20vmax;
-      background: rgba(4, 10, 44, 0.637);
+      height: 8vmax;
+      background: linear-gradient(to bottom, #af0505d7, #500000ce);
+      border-radius: 0 0 3vmax 3vmax;
       opacity: 0;
       visibility: hidden;
       transition: all 0.5s ease-in-out;
-
-     
-
-      .dark-mode{
-        @include flex-center-all;
-        justify-content: flex-start;
-        background-color: #eaeaea; 
-        border: 0.1vmax solid rgb(126, 123, 89); 
-        width: 3vmax;
-        height: 1.5vmax;
-        border-radius: 2vmax;
-        margin-bottom: 1.5vmax;
-        
     
-        .selector{
-          height: 1.3vmax;
-          width: 1.3vmax;
-          background-color: var(--blue-hard);
-          border: 0.1vmax solid var(--blue-soft); 
-          border-radius: 50%;
-          transition: all 0.5s ease-in-out;
-        }
-    
-        .selector:hover{
-          transform: translateX(100%);
-        }
-      }
 
       .language{
         width: 100%;
@@ -104,10 +88,8 @@
         button{
           display: flex;
           width: 100%;
-          border: 0.2vmax solid yellow;
           cursor: pointer;
-          background-color: var(--blue-hard);
-          color: yellow;
+
           img{
             width: 23%;
             height: 75%;
@@ -117,8 +99,8 @@
     }
     
     .modal-options.show{
-      opacity: 1 !important;
-      visibility:visible !important;
+      opacity: 1;
+      visibility:visible;
     }
   }
 }

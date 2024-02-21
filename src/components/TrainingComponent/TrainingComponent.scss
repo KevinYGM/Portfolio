@@ -3,276 +3,302 @@
 .education{
   position: relative;
   @include style-sections;
-  background: var(--blue-soft);
   @include flex-center-all;
+  border: 0.2vmax solid var(--guardsman-red-300);
+  @media(min-width: 760px){
+    box-shadow: 0px 0px 27px var(--guardsman-red-400);
+  };
+  border-radius: 1vmax;
+  background: rgba(0, 0, 0, 0.80);
   flex-direction: column;
-  
   @media(min-width: 700px){
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-around;
-    }
-  gap: 2vmax;
+    width: 80%;
+  }
   
-
-  .tab{
-    @include style-tab-section;
-    right: 0;
+  .title{
+    font-family: "Protest Riot", sans-serif;
+    font-size: 2.8vmax;
+    margin-bottom: 2vmax;
   }
 
-  h1{
-    @include style-silver;
-    font-size: 2.5vmax;
-  }
-
-  .university-degrees{
-    width: 95%;
-    max-width: 400px;
-    @media(min-width: 700px){
-      max-width: 550px;
-    }
-    @include flex-center-all;
+  .container{
+    @include flex-center-all();
     flex-direction: column;
-    gap: 1vmax;
-    
-    .degree{
-      display: flex;
-      gap: 1vmax;
+    gap: 2vmax;
+
+    @media(min-width: 700px){
       width: 100%;
-      padding: 1vmax;
-      background: rgb(51, 51, 224);
-      border-radius: 1vmax;
-
-      aside{
-        width: 20%;
-        img{
-          width: 100%;
-          height: 100%;
-        }
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-around;
       }
-      article{
-        font-size: 1.3vmax;
-      }
-    }
 
-    .icon-decoration{
-      display: none;
-      @media(min-width: 700px){
-        @include flex-center-all;
-        color: yellow;
-        font-size: 20vmax;
-        padding-top: 2vmax;
-      }
-    }
-  }
-
-
-
-
-  .certifications{
-    @include flex-center-all;
-    flex-direction: column;
-    justify-content: flex-start;
-    width: 98%;
-    height: 100%;
-    max-width: 400px;
-    @media(min-width: 700px){
-      max-width: 550px;
-    }
-    
-    
-    .container-all-certifications{
+    .university-degrees{
+      width: 95%;
+      max-width: 400px;
+      margin-bottom: 2vmax;
       
+      @media(min-width: 700px){
+        max-width: 550px;
+      }
       @include flex-center-all;
       flex-direction: column;
-      justify-content: flex-start;
-      width: 100%;
-      height: 40vmax;
-      background: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-      border: 0.2vmax solid yellow;
-      border-radius: 2vmax;
-      padding: 1.5vmax;
-      margin-bottom: 3vmax;
-      overflow-y: hidden;
-      
-      
-
-      .search{
-        
-        background: rgb(34, 31, 31);
-        @include flex-center-all;
-        min-height: 3vmax;
-        font-size: 2.5vmax;
-        margin-bottom: 1vmax;
-        gap: 1vmax;
-        overflow: hidden;
-        padding: 0.3vmax;
-        border-radius: 1vmax;
-        span{
-          width: 5%;
-          cursor: pointer;
-          @include flex-center-all;
-        }
-        input{
-          border: none;
-          width: auto;
-          font-size: 2vmax;
-          background: rgb(34, 31, 31);
-          color: white;
-        }
-        input:focus{
-          outline: 1px solid transparent;
-        }
+      gap: 1vmax;
+      .subtitle{
+        font-family: "Protest Riot", sans-serif;
       }
-
-      .all-certifications{
-        width: 100%;
-        @include flex-center-all;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 1vmax;
-        overflow-y: auto;
-        p{
-          justify-self: center;
-        }
-        .item{
-          @include flex-center-all;
-          justify-content: space-between;
-          background: rgb(34, 31, 31);
-          border-radius: 1vmax;
-          width: 100%;
-          height: 7vmax;
-          min-height: 7vmax;
-          overflow: hidden;
-          
-          .img{
-            width: 25%;
-            height: 100%;
-            img{
-              width: 100%;
-              height: 100%;
-              max-width: 10vmax;
-            }
-          }
-  
-          .info{
-            width: 75%;
-            padding: 1vmax;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: flex-start;
-            font-size: 1vmax;
-          }
-
-          .watch-certification{
-            width: 30%;
-            @include flex-center-all;
-            flex-direction: column;
-            gap: 0.5vmax;
-            cursor: pointer;
-            img{
-              border-radius: 0.5vmax;
-              width: 50%;
-            }
-            strong{
-              display: flex;
-              gap: 0.5vmax;
-              font-size: 1vmax;
-            }
-          }
-        }
-      }
-    }
-
-    .modal-certifications{
-      position: fixed;
-      @include flex-center-all;
-      align-items: center;
-      top: 8vmin;
-      left: 0;
-      z-index: 6;
-      background: rgba(0, 0, 0, 0.692);
-      color: white;
-      min-width: 100%;
-      min-height: 100vh;
-      .modal{
-        position: relative;
+      .degree{
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        border: 0.2vmax solid yellow;
-        height: 80%;
-        margin-bottom: 5vmax;
-        width: 95%;
-        @media(min-width: 422px){
-          width: 75%;
-        }
-
-        @media(min-width: 760px){
-          width: 80%;
-        }
-        @media(min-width: 1100px){
-          width: 70%;
-        }
-        @media(min-width: 1300px){
-          width: 52%;
-        }
-
-        .exit{
-          cursor: pointer;
-          position: absolute;
-          top: 1%;
-          right: 1%; 
-        }
-
-        .title-certification{
-          font-size: 2vmax;
-          @include style-silver;
-          display: flex;
-          gap: 1vmax;
-        }
-
-        .image-certification{
-          position: relative;
-          width: 100%;
-          height: 30vmax;
-
-          @media(min-width: 600px){
-            height: 35%;
-          }
-         
-          @media(min-width: 760px){
-            height: 45vmax;
-          }
-          @media(min-width: 1300px){
-            height: 35vmax;
-          }
+        gap: 1vmax;
+        width: 100%;
+        padding: 1vmax;
+        background: linear-gradient(to left, var(--guardsman-red-950), black);
+        border-radius: 1vmax;
+        font-size: clamp(6px, 0.8vmax, 11px);
+  
+        aside{
+          width: 20%;
           img{
             width: 100%;
             height: 100%;
           }
-          button{
-            position: absolute;
-            background-color: var(--blue-soft);
-            color: yellow;
-            width: auto;
-            font-size: 2.5vmax;
-            top: 50%;
-            transform: translateY(-50%);
+        }
+        article{
+          font-size: clamp(6px, 0.8vmax, 11px);
+        }
+      }
+  
+      .icon-decoration{
+        display: none;
+        @media(min-width: 700px){
+          @include flex-center-all;
+          font-size: 20vmax;
+          padding-top: 2vmax;
+          color: var(--guardsman-red-300);
+        }
+      }
+    }
+  
+  
+  
+  
+    .certifications{
+      @include flex-center-all;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 98%;
+      height: 100%;
+      max-width: 400px;
+      @media(min-width: 700px){
+        max-width: 550px;
+      }
+      .subtitle{
+        font-family: "Protest Riot", sans-serif;
+      }
+      
+      
+      .container-all-certifications{
+        @include flex-center-all;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+        height: 43.5vmax;
+        color: rgb(255, 255, 255);
+        border-radius: 1vmax;
+        padding: 1.5vmax;
+        margin-bottom: 3vmax;
+        overflow-y: hidden;
+        
+        
+  
+        .search{
+          background: linear-gradient(to left, var(--guardsman-red-950), black);
+          @include flex-center-all;
+          min-height: 3vmax;
+          margin-bottom: 1vmax;
+          gap: 1vmax;
+          overflow: hidden;
+          padding: 0.3vmax;
+          border-radius: 1vmax;
+          span{
+            width: 5%;
             cursor: pointer;
+            @include flex-center-all;
           }
+          input{
+            border: none;
+            width: auto;
+            background: transparent;
+            color: white;
+          }
+          input:focus{
+            outline: 1px solid transparent;
+          }
+        }
   
-          button:nth-child(1){
+        .all-certifications{
+          width: 100%;
+          @include flex-center-all;
+          flex-direction: column;
+          justify-content: flex-start;
+          gap: 1vmax;
+          overflow-y: auto;
+          p{
+            justify-self: center;
+          }
+          .item{
+            @include flex-center-all;
+            justify-content: space-between;
+            background: rgb(34, 31, 31);
+            background: linear-gradient(to left, var(--guardsman-red-950), black);
+            border-radius: 1vmax;
+            width: 100%;
+            height: 6.3vmax;
+            min-height: 6.3vmax;
+            overflow: hidden;
+            .img{
+              width: 25%;
+              height: 100%;
+              img{
+                width: 100%;
+                height: 100%;
+                max-width: 10vmax;
+              }
+            }
+    
+            .info{
+              width: 75%;
+              padding: 1vmax;
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              font-size: clamp(6px, 0.8vmax, 11px);
+            }
+  
+            .watch-certification{
+              width: 30%;
+              @include flex-center-all;
+              flex-direction: column;
+              gap: 0.5vmax;
+              cursor: pointer;
+              img{
+                border-radius: 0.5vmax;
+                width: 50%;
+              }
+              strong{
+                display: flex;
+                align-items: center;
+                gap: 0.5vmax;
+                font-size: 1vmax;
+              }
+            }
+          }
+        }
+      }
+
+      .modal-certifications{
+        position: fixed;
+        @include flex-center-all;
+        align-items: center;
+        top: 8vmin;
+        left: 0;
+        z-index: 6;
+        background: rgba(0, 0, 0, 0.692);
+        color: white;
+        width: 100%;
+        min-height: 100vh;
+        .modal{
+          background: linear-gradient(to bottom, black, var(--guardsman-red-950), var(--guardsman-red-500), var(--guardsman-red-950), black);
+          background: linear-gradient(to left, #ff9595a9, #ffc1c1be, #ff9595a9);
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0px 0px 27px var(--guardsman-red-400);
+          border-radius: 0.8vmax;
+          height: 80%;
+          margin-bottom: 5vmax;
+          width: 95%;
+          @media(min-width: 760px){
+            width: 80%;
+          }
+          @media(min-width: 1100px){
+            width: 70%;
+          }
+          @media(min-width: 1300px){
+            width: 60%;
+          }
+    
+          .exit{
+            cursor: pointer;
+            position: absolute;
+            top: 0.5%;
             right: 1.5%;
+            font-size: 2vmax;
           }
-  
-          button:last-child{
-            left: 1.5%;
+
+          .title-certification{
+            @include style-silver;
+            display: flex;
+            gap: 1vmax;
+            
+            color: black;
+
+            strong{
+              font-family: "Protest Riot", sans-serif;
+              font-size: 2vmax;
+              padding: 0.3vmax 0;
+            }
+          }
+
+          .image-certification{
+            position: relative;
+            width: 97%;
+            height: 35vmax;
+            margin-bottom: 0.5vmax;
+            
+          
+            @media(min-width: 760px){
+              height: 35vmax;
+            }
+          
+            img{
+              width: 100%;
+              height: 100%;
+              border-radius: 0.8vmax;
+              @media(min-width: 760px){
+                box-shadow: -5px -3px 9px black;
+              }
+              
+            }
+            button{
+              position: absolute;
+              background: rgba(0, 0, 0, 0.548);
+              color: var(--guardsman-red-100);
+              width: auto;
+              font-size: 3vmax;
+              top: 50%;
+              transform: translateY(-50%);
+              cursor: pointer;
+            }
+
+            button:nth-child(1){
+              right: 1.5%;
+              animation: translate-infinity-left 1.5s ease-in-out infinite; 
+            }
+
+            button:last-child{
+              left: 1.5%;
+              animation: translate-infinity 1.5s ease-in-out infinite; 
+            }
           }
         }
       }
     }
   }
-}
+ }
+
+
+
+

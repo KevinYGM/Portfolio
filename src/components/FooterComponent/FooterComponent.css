@@ -1,30 +1,41 @@
 /*------------General----------------------------*/
 .footer {
   position: relative;
-  background: var(--blue-hard);
-  width: 100%;
+  background: transparent;
+  width: 90%;
   color: white;
   padding: 1vmax;
   height: auto;
+  margin-bottom: 6vmax;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 0.5vmax;
+  margin-bottom: 0.5vmax;
   justify-content: space-between;
-  padding: 0.5vw 1vw;
+  padding: 0.5vmax 1vmax;
   width: 100%;
   height: auto;
+}
+@media (min-width: 760px) {
+  .footer {
+    padding: 1vmax 5vmax;
+    width: 90%;
+  }
 }
 .footer .social-media-container {
   display: flex;
   gap: 1.5vw;
 }
 .footer .social-media-container .social-media {
-  background-image: var(--select-character);
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+  background: var(--guardsman-red-400);
+  box-shadow: 0px 0px 8px var(--guardsman-red-300);
   border-radius: 50%;
   width: 2.5vw;
+  min-width: 1.8rem;
   max-width: 5rem;
   height: 2.5vw;
+  min-height: 1.8rem;
   max-height: 5rem;
   display: flex;
   justify-content: center;
@@ -40,17 +51,12 @@
   color: white;
 }
 .footer .social-media-container .social-media:hover {
-  background-image: var(--button-color);
+  background: var(--guardsman-red-900);
   transform: scale(1.2);
-}
-.footer .social-media-container .social-media:active {
-  background-image: var(--button-color-active);
-  transform: scale(1.2);
-  color: black;
 }
 .footer .rights {
   color: white;
-  font-family: "Chakra Petch", sans-serif;
+  font-family: "Protest Riot", sans-serif;
   font-size: 1.3vmax;
 }
 .footer .logo {

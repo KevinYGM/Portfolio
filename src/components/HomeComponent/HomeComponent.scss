@@ -1,12 +1,15 @@
 @import '../mixins.scss';
 
 .home{
+  @include style-sections();
   width: 100%;
   position: relative;
   margin-top: 7.8vmin;
-  @include flex-center-all();
-  @include style-sections();
   height: 100vmin;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 70% 30%;
+
 
   .modal-categories{
     position: fixed;
@@ -21,7 +24,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background: rgba(4, 10, 44, 0.637);
+    background: linear-gradient(to bottom, #000000af, #2e1010af);
     z-index: 7;
     padding: 1vmax;
     transition: all 300ms ease-in-out;
@@ -34,24 +37,33 @@
       display: flex;
       align-items: flex-end;
       font-size: 3vmax;
-      color: white;
+      color: var(--guardsman-red-100);
     }
 
     .image-modal{
-      background: var(--blue-hard);
-      border: 0.5vmax solid yellow;
+      background: rgba(0, 0, 0, 0.788);
+      border: 0.5vmax solid var(--guardsman-red-300);
+      box-shadow: 0px 0px 8px var(--guardsman-red-300);
       width: 20vmax;
       height: 20vmax;
       border-radius: 50%;
+      overflow: hidden;
       @include flex-center-all;
       margin-bottom: 1vmax;
       img{
-        width: 50%;
+        height: 95%;
       }
     }
 
+    h2{
+      font-family: "Protest Riot", sans-serif;
+      font-size: 2.8vmax;
+      color: var(--guardsman-red-100);
+    }
+
     hr{
-      color: var(--blue-soft);
+      color: var(--guardsman-red-300);
+      box-shadow: 0px 0px 8px var(--guardsman-red-300);
     }
 
     ul{
@@ -60,17 +72,17 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       li{
         @include flex-center-all;
         gap: 2vmax;
-        font-size: 4.5vmax;
         margin-bottom: 2.5vmax;
+        font-size: 2.5vmax;
+        
         cursor: pointer;
         @include style-silver;
         span{
-          color: yellow;
+          color: var(--guardsman-red-400);
+          font-size: 3vmax;
         }
       }
     }
@@ -82,12 +94,9 @@
       flex-direction: column;
       gap: 1vmax;
       button{
-        font-size: 2.5vmax;;
-        color: yellow;
-        border: 0.2vmax solid yellow;
-        background-color: var(--blue-hard);
         width: 80%;
         height: 20%;
+        font-size: 1.8vmax;
       }
     }
   }
@@ -105,96 +114,93 @@
     z-index: 2;
     img{
       height: 100%;
+      border-bottom: 0.2vmax solid var(--guardsman-red-300);
     }
   }
 
   .my-personal-info{
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
+    gap: 3vmax;
     @media(min-width: 700px){
       justify-content: center;
     }
-    align-items: center;
-    margin-top: 9vmax;
-    margin-left: 5vmax;
+    align-items: flex-start;
+    margin-left: 1.5vmax;
     @media(min-width: 550px){
-      margin-left: 10vmax;
-      margin-top: 0vmax;
+      margin-left: 2.5vmax;
     }
-    gap: 0.5vmax;
     height: 100%;
     width: 100%;
     padding: 0.5vmax;
     z-index: 3;
 
     h1{
-      @include style-logo();
-      width: 80%;
-      font-size: 4.5vmax;
-      @media(min-width: 550px){
-        font-size: 7.5vmax;
+      width: 90%;
+      margin-bottom: 2vmax;
+      font-size: clamp(20px, 4.3vmax, 100px);
+      @media(min-width: 760px){
+        font-size: clamp(20px, 6vmax, 100px);
       }
-      margin-bottom: 1.5vmax;
+      font-family: "Protest Riot", sans-serif;
     }
 
     h3{
-      font-size: 2vmax;
       margin-top: 5vmax;
-      @include style-logo();
-      color:rgb(247, 231, 12);
-      text-shadow: 2px 2px 4px rgba(224, 238, 28, 0.726);
     }
 
     p{
-      width: 60%;
-      text-align: justify;
-      margin-bottom: 2.5vmax;
-      font-size: 1.2vmax;
-      @media(min-width: 550px){
-        font-size: 2vmax;
+      width: 100%;
+      @media(min-width: 760px){
+        width: 90%;
       }
+      height: 4rem;
+      text-align: left;
+      margin-bottom: 2.5vmax;
+      font-style: italic;
     }
 
    
     .container-media{
       width: 60%;
       @include flex-center-all();
-      color: rgb(247, 231, 12);
+      justify-content: flex-start;
       gap: 1.5vmax;
-      font-size: 2vmax;
+      margin-top: 1.5vmax;
+      span{
+        @include flex-center-all();
+        background: var(--guardsman-red-400);
+        box-shadow: 0px 0px 8px var(--guardsman-red-300);
+        border-radius: 50%;
+        width: 2.5vw;
+        min-width: 1.8rem;
+        max-width: 5rem;
+        height: 2.5vw;
+        min-height: 1.8rem;
+        max-height: 5rem;
+        transition: all 100ms ease-in-out;
+      }
+
+      span:hover{
+        background: var(--guardsman-red-900);
+        transform: scale(1.2);
+      }
     }
   }
 
-  
-
-  .frame-decoration{
-    position: absolute;
-    top: 0;
-    left: 5%;
-    width: 3%;
-    height: 100%;
-    background:rgb(247, 231, 12);
-    z-index: 1;
-
-    .container-frame{
-      position: relative;
-      width: 100%;
-      height: 100%;
-
+    .watch-video{
+      @include flex-center-all();
+      gap: 2vmax;
       .play-video{
         @include flex-center-all();
-        position: absolute;
-        top: 70%;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgb(247, 231, 12);
-        color: var(--blue-hard);
+        background: linear-gradient(to left, #fc0606, #af0505);
+        color: white;
         width: 5vmax;
         height: 5vmax;
         @media (min-width: 760px) {
-          width: 7vmax;
-          height: 7vmax;}
+          width: 6vmax;
+          height: 6vmax;}
         gap: 1.5vmax;
         font-size: 2.5vmax;
         z-index: 1;
@@ -202,59 +208,3 @@
       }
     }
   }
-
-  
-
-  .logo-background{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-
-    span{
-      position: absolute;
-      left: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-
-      strong{
-        font-size: 11vmin;
-        @include style-logo();
-        text-shadow: 2px 2px 4px var(--blue-soft);
-        opacity: 0.35;
-
-        @media (min-width: 760px) {
-          font-size: 7.5vmin;}
-        @media (min-width: 1200px) {
-          font-size: 8.3vmin;}
-      }
-
-      strong:nth-child(2){
-        display: none;
-        @media (min-width: 760px) {
-          display:flex;}
-      }
-
-      strong:nth-child(3){
-        display: none;
-        @media (min-width: 1200px) {
-          display:flex;}
-      }
-    }
-
-    span:nth-child(1){
-      top:10%;
-    }
-
-    span:nth-child(2){
-      top:45%;
-    }
-
-    span:nth-child(3){
-      top:80%;
-    }
-  }
-}

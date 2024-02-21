@@ -3,7 +3,7 @@ import './HomeComponent.css';
 import { useEffect, useRef, useState } from 'react';
 
 //Icons
-import { FaPlay } from "react-icons/fa";
+// import { FaPlay } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
@@ -95,13 +95,14 @@ useEffect(()=>{
         <div className="image-modal">
           <img src={myPhoto} alt="" />
         </div>
+        <h2>Kevin Y. González M.</h2>
         <hr />
         <ul>
           <li onClick={() => scrollToSection('home', 7.8)}><span><TiHome /></span>{languageEnglish ? 'Home' : 'Presentación'}</li>
-          <li onClick={() => scrollToSection('about-me', 13)}><span><IoPersonCircleSharp /></span>{languageEnglish ? 'About Me' : 'Acerca de Mí'}</li>
-          <li onClick={() => scrollToSection('portfolio', 13)}><span><FaSuitcase /></span>{languageEnglish ? 'Projects' : 'Proyectos'}</li>
-          <li onClick={() => scrollToSection('education', 13)}><span><FaGraduationCap /></span>{languageEnglish ? 'Education' : 'Formación'}</li>
-          <li onClick={() => scrollToSection('contact', 13)}><span><MdAddCall /></span>{languageEnglish ? 'Contact' : 'Contacto'}</li>
+          <li onClick={() => scrollToSection('about-me', 7.8)}><span><IoPersonCircleSharp /></span>{languageEnglish ? 'About Me' : 'Acerca de Mí'}</li>
+          <li onClick={() => scrollToSection('portfolio', 7.8)}><span><FaSuitcase /></span>{languageEnglish ? 'Projects' : 'Proyectos'}</li>
+          <li onClick={() => scrollToSection('education', 7.8)}><span><FaGraduationCap /></span>{languageEnglish ? 'Education' : 'Formación'}</li>
+          <li onClick={() => scrollToSection('contact', 7.8)}><span><MdAddCall /></span>{languageEnglish ? 'Contact Me' : 'Contáctame'}</li>
         </ul>
         <hr />
         <div>
@@ -113,7 +114,7 @@ useEffect(()=>{
                 ><FaBookOpen /> {languageEnglish ? 'Download CV' : 'Descargar CV'}
             </a>
           </button>
-          <button><FaPlay /> {languageEnglish ? 'Watch Video' : 'Ver Video'}</button>
+          {/* <button><FaPlay /> {languageEnglish ? 'Watch Video' : 'Ver Video'}</button> */}
         </div>
       </div>
 
@@ -125,34 +126,21 @@ useEffect(()=>{
       </div>
       <div className="my-personal-info">
         <div className='text'>
-          <h3>Kevin González M.</h3>
+          <h3>I'm Kevin González M.</h3>
           <h1>{languageEnglish ? professions[indexProfessions].name : professions[indexProfessions].nameSpanish}</h1>
           <p>{languageEnglish ? quotes[indexQuotes].quote : quotes[indexQuotes].quoteSpanish} - {quotes[indexQuotes].author} </p>
+          <div className="container-media">
+            <span><a href="https://www.linkedin.com/in/kevinygm" target="_blank" rel="noreferrer"><FaLinkedinIn /></a></span>
+            <span><a href="https://github.com/KevinYGM" target="_blank" rel="noreferrer"><FaGithub /></a></span>
+            <span><a href="https://twitter.com/Kevin_YGM" target="_blank" rel="noreferrer"><FaXTwitter /></a></span>
+          </div>
         </div>
-        
-        <div className="container-media">
-          <hr />
-          <span><a href="https://www.linkedin.com/in/kevinygm" target="_blank" rel="noreferrer"><FaLinkedinIn /></a></span>
-          <span><a href="https://github.com/KevinYGM" target="_blank" rel="noreferrer"><FaGithub /></a></span>
-          <span><a href="https://twitter.com/Kevin_YGM" target="_blank" rel="noreferrer"><FaXTwitter /></a></span>
-          <hr />
-        </div>
-      </div>
 
-
-      
-      {/* Line Decoration */}
-      <div className='frame-decoration'>
-        <div className="container-frame">
+        {/* <div className="watch-video">
           <button className='play-video'><FaPlay /></button>
-        </div>
-      </div>
-
-      {/* background logo */}
-      <div className="logo-background">
-        <span><strong>KYGM APP</strong><strong>KYGM APP</strong><strong>KYGM APP</strong></span>
-        <span><strong>KYGM APP</strong><strong>KYGM APP</strong><strong>KYGM APP</strong></span>
-        <span><strong>KYGM APP</strong><strong>KYGM APP</strong><strong>KYGM APP</strong></span>
+          <span>{languageEnglish ? 'Watch Video' : 'Ver Video'}</span>
+        </div> */}
+        
       </div>
     </div>
   )

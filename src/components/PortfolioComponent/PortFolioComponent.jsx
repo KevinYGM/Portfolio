@@ -3,11 +3,11 @@ import './PortFolioComponent.css';
 import { useEffect, useState } from 'react';
 
 //Icons
-import { FaCaretDown } from "react-icons/fa";
+import { RiArrowLeftDoubleLine } from "react-icons/ri";
+import { RiArrowRightDoubleLine } from "react-icons/ri";
 import { PiArrowFatLinesUpBold } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";
-import { BsCaretLeftSquareFill } from "react-icons/bs";
-import { BsCaretRightSquareFill } from "react-icons/bs";
+
 
 //Icons Technologies
 import { FiGithub } from "react-icons/fi";
@@ -25,7 +25,7 @@ import { otherProjectsDate, projectsHightlights } from '../../data/projects';
 
 
 /*------------------------------Main Component---------------------------------------------------------*/
-export const PortFolioComponent = ({ languageEnglish, scrollToSection }) => {
+export const PortFolioComponent = ({ languageEnglish }) => {
 
   //Local States and Refs
   const [hightlights, setHighlights] = useState(true);
@@ -121,27 +121,27 @@ export const PortFolioComponent = ({ languageEnglish, scrollToSection }) => {
   return (
     <div id= 'portfolio' className="portfolio">
 
-      {/* Tab Category */}
-      <div onClick={() => scrollToSection('portfolio', 13)} className="tab"><FaCaretDown />{languageEnglish ? "Projects" : "Proyectos"}</div>
+      <h2 className="title">{languageEnglish ? 'Projects.' : 'Proyectos.'}</h2>
+
 
       {/* Section categories (Buttons) */}
       <div className="categories-projects">
-        <button   style={{background: hightlights ? 'red' : 'yellow', color: hightlights ? 'white' : 'black'}}
+        <button   style={{background: hightlights ? 'var(--guardsman-red-500)' : 'black', color: hightlights ? 'white' : 'white'}}
                   onClick={()=>{setHighlights(true), setOtherProjects(false)}}
                   >{languageEnglish ? "More Highlights" : "Más Destacados"}</button>
 
-        <button   style={{background: otherProjects ? 'red' : 'yellow', color: otherProjects ? 'white' : 'black' }}
+        <button   style={{background: otherProjects ? 'var(--guardsman-red-500)' : 'black', color: otherProjects ? 'white' : 'white' }}
                   onClick={()=>{setOtherProjects(true), setHighlights(false)}}
                   >{languageEnglish ? "Other Projects" : "Otros Proyectos"}</button>
       </div>
 
       {isFixed && (
          <div className={`categories-projects ${isFixed ? 'fixed' : ''}`}>
-         <button   style={{background: hightlights ? 'red' : 'yellow', color: hightlights ? 'white' : 'black'}}
+         <button   style={{background: hightlights ? 'var(--guardsman-red-500)' : 'black', color: hightlights ? 'white' : 'white'}}
                    onClick={()=>{setHighlights(true), setOtherProjects(false)}}
                    >{languageEnglish ? "More Highlights" : "Más Destacados"}</button>
  
-         <button   style={{background: otherProjects ? 'red' : 'yellow', color: otherProjects ? 'white' : 'black' }}
+         <button   style={{background: otherProjects ? 'var(--guardsman-red-500)' : 'black', color: hightlights ? 'white' : 'white'}}
                    onClick={()=>{setOtherProjects(true), setHighlights(false)}}
                    >{languageEnglish ? "Other Projects" : "Otros Proyectos"}</button>
        </div>
@@ -212,34 +212,35 @@ export const PortFolioComponent = ({ languageEnglish, scrollToSection }) => {
         {/* HightLights Viewer */}
         {viewHightlights && (
           <div className="modal-hightlights">
-          <div className="modal">
-            <div className="exit" 
-                  onClick={() => setViewHightlights(false)}><AiOutlineClose /></div>
-            <div className="title-project"><strong>{languageEnglish ? projectSelected.name: projectSelected.nameSpanish}</strong><strong>{projectSelected.year}</strong></div>
-            <div className="photo-project">
-              <button onClick={() => changePhotoVisible("advance")}><BsCaretRightSquareFill /></button>
-              <img src={projectSelected.photos[indexPhoto]} alt="Photo Visible of the Project" />
-              <button onClick={() => changePhotoVisible("back")}><BsCaretLeftSquareFill /></button>
-            </div>
+            <div className="modal">
+              <div className="exit" 
+                  onClick={() => setViewHightlights(false)}><AiOutlineClose />
+              </div>
+              <div className="title-project"><strong>{languageEnglish ? projectSelected.name: projectSelected.nameSpanish}</strong><strong>{projectSelected.year}</strong></div>
+              <div className="photo-project">
+                <button onClick={() => changePhotoVisible("advance")}><RiArrowRightDoubleLine/></button>
+                <img src={projectSelected.photos[indexPhoto]} alt="Photo Visible of the Project" />
+              <button onClick={() => changePhotoVisible("back")}><RiArrowLeftDoubleLine /></button>
+              </div>
 
-            <div className="container-skills">
-              <strong>{languageEnglish ? "Skills" : "Habilidades"}</strong>
-              {projectSelected.skills.map((skill, index)=> (
-                 <div key={index} className="skill">{iconSkill(skill)}</div>
-              ))}
-            </div>
+              <div className="container-skills">
+                <strong>{languageEnglish ? "Skills" : "Habilidades"}</strong>
+                {projectSelected.skills.map((skill, index)=> (
+                  <div key={index} className="skill">{iconSkill(skill)}</div>
+                ))}
+              </div>
 
-            <div className="description">{languageEnglish ? projectSelected.descriptionEnglish : projectSelected.descriptionSpanish}</div>
+              <div className="description">{languageEnglish ? projectSelected.descriptionEnglish : projectSelected.descriptionSpanish}</div>
 
-            <div className="project-visualization">
-              <button>
-                <a href={projectSelected.linkGithub} target="_blank" rel="noreferrer">GitHub <FiGithub /></a>
-              </button>
-              <button>
-                <a href={projectSelected.linkWebsite} target="_blank" rel="noreferrer">{languageEnglish ? "Website" : "Sitio Web"} <PiArrowFatLinesUpBold /></a>
-              </button>
+              <div className="project-visualization">
+                <button>
+                  <a href={projectSelected.linkGithub} target="_blank" rel="noreferrer">GitHub <FiGithub /></a>
+                </button>
+                <button>
+                  <a href={projectSelected.linkWebsite} target="_blank" rel="noreferrer">{languageEnglish ? "Website" : "Sitio Web"} <PiArrowFatLinesUpBold /></a>
+                </button>
+              </div>
             </div>
-          </div>
-        </div>)}
-    </div>
-  )}
+          </div>)}
+      </div>
+    )}

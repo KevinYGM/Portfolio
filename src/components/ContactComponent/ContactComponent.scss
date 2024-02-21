@@ -2,24 +2,18 @@
 
 .contacts{
   @include style-sections;
-  .tab{
-    @include style-tab-section;
-
-  }
-
   .form-contact{
     position: relative;
     @include flex-center-all;
     flex-direction: column;
     gap: 2vmax;
 
-    
     &:focus-within {
       .title-form {
         .decoration {
           left: 100%;
           transform: rotate(180deg) translateX(100%);
-          border-bottom: 1vmax solid yellow;
+          border-bottom: 1vmax solid var(--guardsman-red-400) ;
         }
       }
     }
@@ -35,7 +29,12 @@
       }
       padding: 2vmax 0;
       margin-bottom: 3vmax;
-      border-bottom: 0.2vmax solid rgb(255, 252, 252);
+      border-bottom: 0.2vmax solid var(--guardsman-red-300);
+
+      h2{
+        font-family: "Protest Riot", sans-serif;
+        font-size: 2.8vmax;
+      }
       .decoration{
         position: absolute;
         top: 100%;
@@ -45,9 +44,8 @@
         height: 0;
         border-left: 1vmax solid transparent;
         border-right: 8vmax solid transparent;
-        border-bottom: 1vmax solid white;
+        border-bottom: 1vmax solid var(--guardsman-red-200);
         transition: all 2s ease-in-out;
-        
       }
     }
     label{
@@ -81,9 +79,11 @@
         border: none;
         padding: 0.5vmax;
         color: white;
-        border-bottom: 0.1vmax solid white;
-        border-radius: 0.2vmax;
+        border: 0.2vmax solid transparent;
+        border-bottom: 0.2vmax solid var(--guardsman-red-300);
+        border-radius: 0.5vmax;
         transition: all 0.8s ease-in-out;
+        box-shadow: 0px  0px 8px transparent;
 
         &::placeholder {
           opacity: 0.5;
@@ -129,9 +129,6 @@
     .modal-info{
       position: fixed;
       @include flex-center-all;
-      @media(max-width: 422px){
-        align-items: flex-end;
-      }
       top: 8vmin;
       left: 0;
       z-index: 6;
@@ -145,30 +142,28 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        @media(max-width: 760px){
-          font-size: 1.1vmax;
-        }
-        border: 0.2vmax solid rgb(0, 255, 42);
-        background: rgba(214, 63, 63, 0.651);
-        border-radius: 1vmax;
+        gap: 1vmax;
+        border-radius: 0.7vmax;
+        padding: 0.5vmax;
         height: 10vmax;
-        width: 60%;
+        width: 20vmax;
         margin-bottom: 5vmax;
         @media(max-width: 422px){
-          margin-bottom: 30vmax;
-        }
-        @media(min-width: 422px){
-          width: 55%;
+          margin-bottom: 0vmax;
+          margin-top: 10vmax;
         }
 
-        @media(min-width: 760px){
-          width: 50%;
+
+        h2{
+          text-align: center;
+          font-size: clamp(8px, 2vmax, 30px);
+          font-family: "Protest Riot", sans-serif;
         }
-        @media(min-width: 1100px){
-          width: 45%;
-        }
-        @media(min-width: 1300px){
-          width: 40%;
+
+        p{
+          font-size: clamp(6px, 1.1vmax, 16px);
+          font-style: italic;
+          text-align: center;
         }
       }
     }

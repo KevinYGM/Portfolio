@@ -3,7 +3,6 @@ import './AboutComponent.css';
 import { useEffect, useState } from 'react';
 
 //Icons
-import { FaCaretDown } from "react-icons/fa";
 import { BiRename } from "react-icons/bi";
 import { FaLocationDot } from "react-icons/fa6";
 import { FaRegCalendarAlt } from "react-icons/fa";
@@ -32,7 +31,7 @@ import { aboutMe } from '../../data/description';
 
 
 /*------------------------------Main Component---------------------------------------------------------*/
-export const AboutComponent = ({languageEnglish, scrollToSection }) => {
+export const AboutComponent = ({ languageEnglish }) => {
 
 
 //Local States and Refs
@@ -108,12 +107,8 @@ export const AboutComponent = ({languageEnglish, scrollToSection }) => {
   return (
     <div id='about-me' className='about-me'>
 
-      {/* Tab Category */}
-      <div onClick={() => scrollToSection('about-me', 13)} className="tab"><FaCaretDown />{languageEnglish ? 'About Me' : 'Acerca de mí'}</div>
-      <div className="frame-texture"></div>
-
-
-
+    
+      
       {/* Section of Photo (Only Desktops and Laptops) */}
       <div className="photo">
         <img src={myPhotoAbout} alt="Photo in Lima" />
@@ -133,11 +128,18 @@ export const AboutComponent = ({languageEnglish, scrollToSection }) => {
       <div className="container-info">
         <div className="info">
           <div className="presentation">
-            <button><FaBookOpen />{languageEnglish ? 'Download CV' : 'Descargar CV'}</button>
-            <h2>{languageEnglish ? 'Who am I?' : '¿Quien Soy Yo?'}</h2>
+            <button>
+              <a  href={curriculum} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                download="Curriculum-Kevin-Gonzalez.pdf">
+                  <FaBookOpen /> {languageEnglish ? 'Download CV' : 'Descargar CV'}
+               </a>
+            </button>
+            <h2>{languageEnglish ? 'About Me.' : 'Acerca de Mí.'}</h2>
             
           </div>
-          <h3>{languageEnglish ? 'I am Kevin González' : 'Soy Kevin González'}</h3>
+          <h2>{languageEnglish ? 'As am I?' : '¿Como Soy Yo?'}</h2>
           <p>{languageEnglish ? aboutMe.description : aboutMe.descriptionSpanish}</p>
           <hr />
           <div className="resume">

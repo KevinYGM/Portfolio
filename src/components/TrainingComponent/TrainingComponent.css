@@ -1,12 +1,42 @@
 .education {
   position: relative;
   position: relative;
-  background: var(--blue-hard);
-  width: 100%;
+  background: transparent;
+  width: 90%;
   color: white;
   padding: 1vmax;
   height: auto;
-  background: var(--blue-soft);
+  margin-bottom: 6vmax;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.2vmax solid var(--guardsman-red-300);
+  border-radius: 1vmax;
+  background: rgba(0, 0, 0, 0.8);
+  flex-direction: column;
+}
+@media (min-width: 760px) {
+  .education {
+    padding: 1vmax 5vmax;
+    width: 90%;
+  }
+}
+@media (min-width: 760px) {
+  .education {
+    box-shadow: 0px 0px 27px var(--guardsman-red-400);
+  }
+}
+@media (min-width: 700px) {
+  .education {
+    width: 80%;
+  }
+}
+.education .title {
+  font-family: "Protest Riot", sans-serif;
+  font-size: 2.8vmax;
+  margin-bottom: 2vmax;
+}
+.education .container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -14,41 +44,17 @@
   gap: 2vmax;
 }
 @media (min-width: 700px) {
-  .education {
+  .education .container {
+    width: 100%;
     flex-direction: row;
     align-items: flex-start;
     justify-content: space-around;
   }
 }
-.education .tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  transform: translateY(-100%);
-  padding: 1vmin;
-  width: 15%;
-  min-width: 7rem;
-  background: rgb(247, 231, 12);
-  color: black;
-  cursor: pointer;
-  box-shadow: 0px 1px 20px rgb(1, 2, 1);
-  z-index: 4;
-  font-size: 1.2vmax;
-  right: 0;
-}
-.education h1 {
-  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
-  background: var(--gradient-silver);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-size: 2.5vmax;
-}
-.education .university-degrees {
+.education .container .university-degrees {
   width: 95%;
   max-width: 400px;
+  margin-bottom: 2vmax;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -56,42 +62,46 @@
   gap: 1vmax;
 }
 @media (min-width: 700px) {
-  .education .university-degrees {
+  .education .container .university-degrees {
     max-width: 550px;
   }
 }
-.education .university-degrees .degree {
+.education .container .university-degrees .subtitle {
+  font-family: "Protest Riot", sans-serif;
+}
+.education .container .university-degrees .degree {
   display: flex;
   gap: 1vmax;
   width: 100%;
   padding: 1vmax;
-  background: rgb(51, 51, 224);
+  background: linear-gradient(to left, var(--guardsman-red-950), black);
   border-radius: 1vmax;
+  font-size: clamp(6px, 0.8vmax, 11px);
 }
-.education .university-degrees .degree aside {
+.education .container .university-degrees .degree aside {
   width: 20%;
 }
-.education .university-degrees .degree aside img {
+.education .container .university-degrees .degree aside img {
   width: 100%;
   height: 100%;
 }
-.education .university-degrees .degree article {
-  font-size: 1.3vmax;
+.education .container .university-degrees .degree article {
+  font-size: clamp(6px, 0.8vmax, 11px);
 }
-.education .university-degrees .icon-decoration {
+.education .container .university-degrees .icon-decoration {
   display: none;
 }
 @media (min-width: 700px) {
-  .education .university-degrees .icon-decoration {
+  .education .container .university-degrees .icon-decoration {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: yellow;
     font-size: 20vmax;
     padding-top: 2vmax;
+    color: var(--guardsman-red-300);
   }
 }
-.education .certifications {
+.education .container .certifications {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -102,57 +112,56 @@
   max-width: 400px;
 }
 @media (min-width: 700px) {
-  .education .certifications {
+  .education .container .certifications {
     max-width: 550px;
   }
 }
-.education .certifications .container-all-certifications {
+.education .container .certifications .subtitle {
+  font-family: "Protest Riot", sans-serif;
+}
+.education .container .certifications .container-all-certifications {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   justify-content: flex-start;
   width: 100%;
-  height: 40vmax;
-  background: rgb(0, 0, 0);
+  height: 43.5vmax;
   color: rgb(255, 255, 255);
-  border: 0.2vmax solid yellow;
-  border-radius: 2vmax;
+  border-radius: 1vmax;
   padding: 1.5vmax;
   margin-bottom: 3vmax;
   overflow-y: hidden;
 }
-.education .certifications .container-all-certifications .search {
-  background: rgb(34, 31, 31);
+.education .container .certifications .container-all-certifications .search {
+  background: linear-gradient(to left, var(--guardsman-red-950), black);
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 3vmax;
-  font-size: 2.5vmax;
   margin-bottom: 1vmax;
   gap: 1vmax;
   overflow: hidden;
   padding: 0.3vmax;
   border-radius: 1vmax;
 }
-.education .certifications .container-all-certifications .search span {
+.education .container .certifications .container-all-certifications .search span {
   width: 5%;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.education .certifications .container-all-certifications .search input {
+.education .container .certifications .container-all-certifications .search input {
   border: none;
   width: auto;
-  font-size: 2vmax;
-  background: rgb(34, 31, 31);
+  background: transparent;
   color: white;
 }
-.education .certifications .container-all-certifications .search input:focus {
+.education .container .certifications .container-all-certifications .search input:focus {
   outline: 1px solid transparent;
 }
-.education .certifications .container-all-certifications .all-certifications {
+.education .container .certifications .container-all-certifications .all-certifications {
   width: 100%;
   display: flex;
   align-items: center;
@@ -162,40 +171,41 @@
   gap: 1vmax;
   overflow-y: auto;
 }
-.education .certifications .container-all-certifications .all-certifications p {
+.education .container .certifications .container-all-certifications .all-certifications p {
   justify-self: center;
 }
-.education .certifications .container-all-certifications .all-certifications .item {
+.education .container .certifications .container-all-certifications .all-certifications .item {
   display: flex;
   align-items: center;
   justify-content: center;
   justify-content: space-between;
   background: rgb(34, 31, 31);
+  background: linear-gradient(to left, var(--guardsman-red-950), black);
   border-radius: 1vmax;
   width: 100%;
-  height: 7vmax;
-  min-height: 7vmax;
+  height: 6.3vmax;
+  min-height: 6.3vmax;
   overflow: hidden;
 }
-.education .certifications .container-all-certifications .all-certifications .item .img {
+.education .container .certifications .container-all-certifications .all-certifications .item .img {
   width: 25%;
   height: 100%;
 }
-.education .certifications .container-all-certifications .all-certifications .item .img img {
+.education .container .certifications .container-all-certifications .all-certifications .item .img img {
   width: 100%;
   height: 100%;
   max-width: 10vmax;
 }
-.education .certifications .container-all-certifications .all-certifications .item .info {
+.education .container .certifications .container-all-certifications .all-certifications .item .info {
   width: 75%;
   padding: 1vmax;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  font-size: 1vmax;
+  font-size: clamp(6px, 0.8vmax, 11px);
 }
-.education .certifications .container-all-certifications .all-certifications .item .watch-certification {
+.education .container .certifications .container-all-certifications .all-certifications .item .watch-certification {
   width: 30%;
   display: flex;
   align-items: center;
@@ -204,16 +214,17 @@
   gap: 0.5vmax;
   cursor: pointer;
 }
-.education .certifications .container-all-certifications .all-certifications .item .watch-certification img {
+.education .container .certifications .container-all-certifications .all-certifications .item .watch-certification img {
   border-radius: 0.5vmax;
   width: 50%;
 }
-.education .certifications .container-all-certifications .all-certifications .item .watch-certification strong {
+.education .container .certifications .container-all-certifications .all-certifications .item .watch-certification strong {
   display: flex;
+  align-items: center;
   gap: 0.5vmax;
   font-size: 1vmax;
 }
-.education .certifications .modal-certifications {
+.education .container .certifications .modal-certifications {
   position: fixed;
   display: flex;
   align-items: center;
@@ -224,47 +235,45 @@
   z-index: 6;
   background: rgba(0, 0, 0, 0.692);
   color: white;
-  min-width: 100%;
+  width: 100%;
   min-height: 100vh;
 }
-.education .certifications .modal-certifications .modal {
+.education .container .certifications .modal-certifications .modal {
+  background: linear-gradient(to bottom, black, var(--guardsman-red-950), var(--guardsman-red-500), var(--guardsman-red-950), black);
+  background: linear-gradient(to left, rgba(255, 149, 149, 0.662745098), rgba(255, 193, 193, 0.7450980392), rgba(255, 149, 149, 0.662745098));
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 0.2vmax solid yellow;
+  box-shadow: 0px 0px 27px var(--guardsman-red-400);
+  border-radius: 0.8vmax;
   height: 80%;
   margin-bottom: 5vmax;
   width: 95%;
 }
-@media (min-width: 422px) {
-  .education .certifications .modal-certifications .modal {
-    width: 75%;
-  }
-}
 @media (min-width: 760px) {
-  .education .certifications .modal-certifications .modal {
+  .education .container .certifications .modal-certifications .modal {
     width: 80%;
   }
 }
 @media (min-width: 1100px) {
-  .education .certifications .modal-certifications .modal {
+  .education .container .certifications .modal-certifications .modal {
     width: 70%;
   }
 }
 @media (min-width: 1300px) {
-  .education .certifications .modal-certifications .modal {
-    width: 52%;
+  .education .container .certifications .modal-certifications .modal {
+    width: 60%;
   }
 }
-.education .certifications .modal-certifications .modal .exit {
+.education .container .certifications .modal-certifications .modal .exit {
   cursor: pointer;
   position: absolute;
-  top: 1%;
-  right: 1%;
-}
-.education .certifications .modal-certifications .modal .title-certification {
+  top: 0.5%;
+  right: 1.5%;
   font-size: 2vmax;
+}
+.education .container .certifications .modal-certifications .modal .title-certification {
   text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
   background: var(--gradient-silver);
   -webkit-background-clip: text;
@@ -272,44 +281,49 @@
   color: transparent;
   display: flex;
   gap: 1vmax;
+  color: black;
 }
-.education .certifications .modal-certifications .modal .image-certification {
+.education .container .certifications .modal-certifications .modal .title-certification strong {
+  font-family: "Protest Riot", sans-serif;
+  font-size: 2vmax;
+  padding: 0.3vmax 0;
+}
+.education .container .certifications .modal-certifications .modal .image-certification {
   position: relative;
-  width: 100%;
-  height: 30vmax;
-}
-@media (min-width: 600px) {
-  .education .certifications .modal-certifications .modal .image-certification {
-    height: 35%;
-  }
+  width: 97%;
+  height: 35vmax;
+  margin-bottom: 0.5vmax;
 }
 @media (min-width: 760px) {
-  .education .certifications .modal-certifications .modal .image-certification {
-    height: 45vmax;
-  }
-}
-@media (min-width: 1300px) {
-  .education .certifications .modal-certifications .modal .image-certification {
+  .education .container .certifications .modal-certifications .modal .image-certification {
     height: 35vmax;
   }
 }
-.education .certifications .modal-certifications .modal .image-certification img {
+.education .container .certifications .modal-certifications .modal .image-certification img {
   width: 100%;
   height: 100%;
+  border-radius: 0.8vmax;
 }
-.education .certifications .modal-certifications .modal .image-certification button {
+@media (min-width: 760px) {
+  .education .container .certifications .modal-certifications .modal .image-certification img {
+    box-shadow: -5px -3px 9px black;
+  }
+}
+.education .container .certifications .modal-certifications .modal .image-certification button {
   position: absolute;
-  background-color: var(--blue-soft);
-  color: yellow;
+  background: rgba(0, 0, 0, 0.548);
+  color: var(--guardsman-red-100);
   width: auto;
-  font-size: 2.5vmax;
+  font-size: 3vmax;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
 }
-.education .certifications .modal-certifications .modal .image-certification button:nth-child(1) {
+.education .container .certifications .modal-certifications .modal .image-certification button:nth-child(1) {
   right: 1.5%;
+  animation: translate-infinity-left 1.5s ease-in-out infinite;
 }
-.education .certifications .modal-certifications .modal .image-certification button:last-child {
+.education .container .certifications .modal-certifications .modal .image-certification button:last-child {
   left: 1.5%;
+  animation: translate-infinity 1.5s ease-in-out infinite;
 }/*# sourceMappingURL=TrainingComponent.css.map */

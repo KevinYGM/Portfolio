@@ -37,7 +37,7 @@ export const certificationsData = [
     date: "November 25 2022",
     dateSpanish: "25 de Noviembre del 2022",
     name: "Logical thinking: Algorithms and Flowcharts",
-    nameSpanish: "Pensamiento Lógico: Algoritmos y Diagramas de Flujo",
+    nameSpanish: "Lógica: Algoritmos y Diagramas de Flujo",
     company: "Platzi",
     imageCompany: imgPlatzi, 
     imageCertification: imgAlgorithms
@@ -57,7 +57,7 @@ export const certificationsData = [
     date: "November 28, 2022",
     dateSpanish: "28 de Noviembre del 2022",
     name: "Logical thinking: Control Functions and Structures",
-    nameSpanish: "Pensamiento Lógico: Funciones y Estructuras de Control",
+    nameSpanish: "Lógica: Funciones y Estructuras de Control",
     company: "Platzi",
     imageCompany: imgPlatzi, 
     imageCertification: imgStructures
@@ -67,7 +67,7 @@ export const certificationsData = [
     date: "November 29, 2022",
     dateSpanish: "29 de Noviembre del 2022",
     name: "Logical thinking: Programming Languages",
-    nameSpanish: "Pensamiento lógico: Lenguajes de Programación",
+    nameSpanish: "Lógica: Lenguajes de Programación",
     company: "Platzi",
     imageCompany: imgPlatzi, 
     imageCertification: imgProgramming
@@ -256,8 +256,8 @@ export const certificationsData = [
   {
     date: "August 6, 2023",
     dateSpanish: "6 de Agosto del 2023",
-    name: "NPM: Package and Dependency Management in Javascript",
-    nameSpanish: "NPM: Gestión de Paquetes y Dependencias en Javascript",
+    name: "NPM",
+    nameSpanish: "NPM",
     company: "Platzi",
     imageCompany: imgPlatzi, 
     imageCertification: imgNPM

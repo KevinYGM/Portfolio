@@ -16,11 +16,16 @@
 
 @mixin style-sections{
   position: relative;
-  background: var(--blue-hard);
-  width: 100%;
+  background: transparent;
+  width: 90%;
   color: white;
   padding: 1vmax;
   height: auto;
+  margin-bottom: 6vmax;
+  @media(min-width: 760px){
+    padding: 1vmax 5vmax;
+    width: 90%;
+  }
 }
 
 @mixin style-silver{
@@ -29,20 +34,4 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-@mixin style-tab-section{
-  @include flex-center-all();
-  position: absolute;
-  top: 0;
-  transform: translateY(-100%);
-  padding: 1vmin;
-  width: 15%;
-  min-width: 7rem;
-  background:rgb(247, 231, 12);
-  color: black;
-  cursor: pointer;
-  box-shadow: 0px 1px 20px rgb(1, 2, 1);
-  z-index: 4;
-  font-size: 1.2vmax;
 }

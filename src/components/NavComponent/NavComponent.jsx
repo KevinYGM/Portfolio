@@ -51,7 +51,7 @@ export const NavComponent =
     <div className="main-nav">
 
       <div  className="burguer-menu"
-            style={{color: openModalIndex ? 'var(--blue-soft)' : 'rgb(247, 231, 12)' }}
+            style={{color: openModalIndex ? 'transparent' : 'var(--guardsman-red-200)' }}
             onClick={() => setOpenModalIndex(true)}><TiThMenu /></div>
       <div className="logo">
         KYGM APP
@@ -61,22 +61,18 @@ export const NavComponent =
 
       <ul className="sections-nav">
         <li onClick={() => scrollToSection('home', 7.8)}>{languageEnglish ? 'Home' : 'Presentación'}</li>
-        <li onClick={() => scrollToSection('about-me', 13)}>{languageEnglish ? 'About Me' : 'Acerca de Mí'}</li>
-        <li onClick={() => scrollToSection('portfolio', 13)}>{languageEnglish ? 'Projects' : 'Proyectos'}</li>
-        <li onClick={() => scrollToSection('education', 13)}>{languageEnglish ? 'Education' : 'Formación'}</li>
-        <li onClick={() => scrollToSection('contact', 13)}>{languageEnglish ? 'Contact' : 'Contacto'}</li>
+        <li onClick={() => scrollToSection('about-me', 7.8)}>{languageEnglish ? 'About Me' : 'Acerca de Mí'}</li>
+        <li onClick={() => scrollToSection('portfolio', 7.8)}>{languageEnglish ? 'Projects' : 'Proyectos'}</li>
+        <li onClick={() => scrollToSection('education', 7.8)}>{languageEnglish ? 'Education' : 'Formación'}</li>
+        <li onClick={() => scrollToSection('contact', 7.8)}>{languageEnglish ? 'Contact Me' : 'Contáctame'}</li>
       </ul>
 
 
 
       <div className="options" onClick={toogleModal}>
-        <span>{languageEnglish ? 'Options' : 'Opciones'}</span>
+        <span>{languageEnglish ? 'Language' : 'Idioma'}</span>
         <div id="modal-options" className={`modal-options ${isOpenModalOptions ? 'show' : ''}`}>
-          <span>{languageEnglish ? 'Dark Mode' : 'Modo Oscuro'}</span>
-          <div className="dark-mode">
-            <div className="selector"></div>
-          </div>
-          <span>{languageEnglish ? 'Language' : 'Idioma'}</span>
+          
           <div className="language">
             <button onClick={() => {setLanguageEnglish(false)}}>
               <img src={flagSpain} alt="" />

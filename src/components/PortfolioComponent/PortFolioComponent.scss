@@ -8,20 +8,23 @@
   padding-bottom: 5vmax;
   gap: 1vmax;
 
-
-  .tab{
-    @include style-tab-section;
-    left: 0.5%;
-   }
-
-   .categories-projects{
+  .title{
+    font-family: "Protest Riot", sans-serif;
+    font-size: 2.8vmax;
+  }
+  
+  .categories-projects{
     display: flex;
     justify-content: center;
     gap: 1vmax;
     margin-bottom: 1vmax;
     width: 100%;
     transition: all 0.3s ease-in-out;
+
     button{
+      background: black;
+      border: 0.1vmax solid var(--guardsman-red-300);
+      color: var(--guardsman-red-100);
       width: 40%;
       cursor: pointer;
       transition: all 0.5s ease-in-out;
@@ -37,11 +40,17 @@
     }
    }
 
+
    .categories-projects.fixed{
     position: fixed;
+    border-radius: 0 0 3vmax 3vmax;
+    @media(min-width: 760px){
+      border-radius: 0 0 5vmax 5vmax;
+    }
+    width: 80%;
     top: 8vmin;
     z-index: 5;
-    background: var(--blue-soft);
+    background: linear-gradient(to left, #af0505d7, #500000ce); 
     padding-bottom: 1vmax;
    }
 
@@ -50,33 +59,39 @@
     width: 100%;
     flex-direction: column;
     gap: 1.5vmax;
-    @media(min-width: 700px){
+     @media(min-width: 700px){
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
     }
+
     .project-hightlight{
-      background: rgb(0, 0, 0);
-      border: 0.2vmax solid yellow;
+      background: rgba(0, 0, 0, 0.705);
+      border: 0.2vmax solid var(--guardsman-red-300);
+      @media(min-width: 760px){
+        box-shadow: 0px 0px 20px var(--guardsman-red-400);
+      };
       border-radius: 0.5vmax;
       width: 100%;
+      overflow: hidden;
       @media only screen and (min-width: 500px) and (max-width: 699px) {
         width: 80%;
       }
       @include flex-center-all;
       flex-direction: column;
       gap: 0.5vmax;
+
       .title-project{
-        font-size: 2vmax;
-        @include style-silver;
         display: flex;
         gap: 1vmax;
-      }
+       }
+
       .photo-project{
         width: 98%;
         height: 25vmax;
         border-radius: 0.5vmax;
         overflow: hidden;
+
         img{
           width: 100%;
           height: 100%;
@@ -89,7 +104,7 @@
       }
 
       strong{
-        font-size: 1.8vmax;
+        font-size: clamp(8px, 1.3vmax, 30px);
       }
 
       .container-skills{
@@ -98,13 +113,15 @@
         justify-content: space-around;
         align-items: center;
         margin-bottom: 1.5vmax;
+        gap: 0.5vmax;
+        padding: 0.4vmax;
 
         .skill{
           @include flex-center-all;
-          color: yellow;
           font-size: 3vmax;
           border-radius: 0.5vmax;
-          background-color: rgb(11, 21, 78);
+          background: var(--guardsman-red-400);
+          color: var(--guardsman-red-100);
           height: 4vmax;
           width: 4vmax;
         }
@@ -112,24 +129,18 @@
 
       .project-visualization{
         width:100%;
+        border-radius: 0;
         cursor: pointer;
-        a{
-          color: black;
-        }
       }
     }
-   
-
    }
 
-   .container-hightlights.hide{
+  .container-hightlights.hide{
     display: none;
    }
 
 
-
-
-   .container-other-projects{
+  .container-other-projects{
     @include flex-center-all;
     width: 100%;
     flex-direction: column;
@@ -143,11 +154,18 @@
     @media(min-width: 832px){
       grid-template-columns: 1fr 1fr 1fr;
     }
+
     .other-projects{
       background: rgb(0, 0, 0);
-      border: 0.2vmax solid yellow;
+      background: linear-gradient(to left, var(--guardsman-red-950), black);
+      background: rgba(0, 0, 0, 0.705);
+      border: 0.2vmax solid var(--guardsman-red-300);
+      @media(min-width: 760px){
+        box-shadow: 0px 0px 20px var(--guardsman-red-400);
+      };
       border-radius: 0.5vmax;
       width: 90%;
+      overflow: hidden;
       @media only screen and (min-width: 432px) and (max-width: 632px) {
         width: 75%;
       }
@@ -155,8 +173,6 @@
       flex-direction: column;
       gap: 0.5vmax;
       .title-project{
-        font-size: 2vmax;
-        @include style-silver;
         display: flex;
         gap: 1vmax;
       }
@@ -180,12 +196,12 @@
       }
 
       strong{
-        font-size: 1.8vmax;
+        font-size: clamp(8px, 1.3vmax, 30px);
       }
 
       .container-skills{
         align-self: flex-start;
-        width: 50%;
+        width: 70%;
         display: flex;
         justify-content: flex-start;
         align-items: center;
@@ -199,12 +215,12 @@
 
         .skill{
           @include flex-center-all;
-          color: yellow;
-          font-size: 1.2vmax;
+          font-size: clamp(12px, 1.5vmax, 20px);
           border-radius: 0.5vmax;
-          background-color: rgb(11, 21, 78);
-          height: 1.5vmax;
-          width: 1.5vmax;
+          background: var(--guardsman-red-400);
+          color: var(--guardsman-red-100);
+          height: 2vmax;
+          width: 2vmax;
         }
       }
 
@@ -212,8 +228,9 @@
         display: flex;
         align-items: center;
         text-align: start;
-        padding: 0 1vmax;
-        font-size: 1vmax;
+        padding: 1vmax;
+        margin: 0.5vmax 0;
+        font-size: clamp(8px, 0.8vmax, 16px);
         height: 5vmax;
       }
 
@@ -222,15 +239,12 @@
         display: flex;
         gap: 0.5vmax;
         button{
+          border-radius: 0;
           width: 50%;
           cursor: pointer;
-          a{
-            color: black;
-          }
         }
       }
     }
-
   }
 
   .container-other-projects.hide{
@@ -252,12 +266,15 @@
     width: 100%;
     min-height: 100vh;
     .modal{
-      overflow-y: scroll;
+      background: linear-gradient(to bottom, black, var(--guardsman-red-950), var(--guardsman-red-500), var(--guardsman-red-950), black);
+      background: linear-gradient(to left, #ff9595a9, #ffc1c1be, #ff9595a9);
       position: relative;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       align-items: center;
-      border: 0.2vmax solid yellow;
+      box-shadow: 0px 0px 27px var(--guardsman-red-400);
+      border-radius: 0.8vmax;
       height: 80%;
       margin-bottom: 5vmax;
       width: 95%;
@@ -274,53 +291,70 @@
       .exit{
         cursor: pointer;
         position: absolute;
-        top: 1%;
-        right: 1%; 
+        top: 0.5%;
+        right: 1.5%;
+        font-size: 2vmax;
       }
 
       .title-project{
-        font-size: 2vmax;
         @include style-silver;
         display: flex;
         gap: 1vmax;
+        color: black;
+
+        strong{
+          font-family: "Protest Riot", sans-serif;
+          font-size: 2vmax;
+          padding: 0.3vmax 0;
+        }
       }
 
       .photo-project{
         position: relative;
-        width: 100%;
+        width: 97%;
         height: 35vmax;
-       
         @media(min-width: 760px){
           height: 35vmax;
         }
         @media(min-width: 1300px){
           height: 28vmax;
         }
+
         img{
           width: 100%;
           height: 100%;
+          border-radius: 0.8vmax;
+          @media(min-width: 760px){
+            box-shadow: -5px -3px 9px black;
+          }
         }
+
         button{
           position: absolute;
-          background-color: var(--blue-soft);
-          color: yellow;
+          background: rgba(0, 0, 0, 0.548);
+          color: var(--guardsman-red-100);
           width: auto;
-          font-size: 2.5vmax;
+          font-size: 3vmax;
           top: 50%;
           transform: translateY(-50%);
+          transition: all 300ms ease-in-out;
           cursor: pointer;
+        }
+
+        button:active{
+          background: black;
         }
 
         button:nth-child(1){
           right: 1.5%;
+          animation: translate-infinity-left 1.5s ease-in-out infinite; 
         }
 
         button:last-child{
           left: 1.5%;
+          animation: translate-infinity 1.5s ease-in-out infinite; 
         }
       }
-
-
 
       .container-skills{
         align-self: flex-start;
@@ -328,38 +362,34 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        background: red;
+        background: linear-gradient(to left, black, var(--guardsman-red-950), black);
         border-radius: 0 5px 5px 0;
         gap: 1vmax;
         padding: 0.2vmax 1vmax;
-        margin-bottom: 1.5vmax;
+        margin: 0.4vmax 0;
 
-        strong{
-          font-size: 1.5vmax;
-        }
-
+  
         .skill{
           @include flex-center-all;
-          color: yellow;
           font-size: 1.5vmax;
           border-radius: 0.5vmax;
-          background-color: rgb(11, 21, 78);
+          background-color: var(--guardsman-red-500);
           height: 1.8vmax;
           width: 1.8vmax;
         }
       }
-
-      
 
       .description{
         display: flex;
         align-items: center;
         text-align: start;
         justify-content: center;
-        padding: 0 1vmax;
-        padding-bottom: 0.8vmax;
-        font-size: 1vmax;
-        height: 5vmax;
+        padding: 1vmax;
+        height: 6vmax;
+        font-style: italic;
+        font-size: clamp(6px, 0.9vmax, 18px);
+        color: black;
+        overflow-y: scroll;
       }
       
       .project-visualization{
@@ -368,10 +398,8 @@
         gap: 0.5vmax;
         button{
           width: 50%;
+          border-radius: 0;
           cursor: pointer;
-          a{
-            color: black;
-          }
         }
       }
     }

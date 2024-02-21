@@ -8,7 +8,7 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa6";
 
 
-export const FooterComponent = ({languageEnglish}) => {
+export const FooterComponent = ({ languageEnglish }) => {
   
    /*---------------- component JSX structure ---------------------- */  
   return (

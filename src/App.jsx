@@ -53,16 +53,16 @@ const scrollToSection = (idSection, offsetVmin = 0) => {
             scrollToSection = { scrollToSection } />
       <AboutComponent 
             languageEnglish = { languageEnglish }
-            scrollToSection = { scrollToSection } />
+             />
       <PortFolioComponent
             languageEnglish = { languageEnglish }
-            scrollToSection = { scrollToSection } />
+            />
       <TrainingComponent 
             languageEnglish = { languageEnglish }
-            scrollToSection = { scrollToSection } />
+            />
       <ContactComponent
              languageEnglish = { languageEnglish } 
-             scrollToSection = { scrollToSection } />
+              />
       <FooterComponent
              languageEnglish = { languageEnglish }/>
     </>

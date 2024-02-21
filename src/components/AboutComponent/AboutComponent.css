@@ -1,47 +1,34 @@
 .about-me {
   position: relative;
-  background: var(--blue-hard);
-  width: 100%;
+  background: transparent;
+  width: 90%;
   color: white;
   padding: 1vmax;
   height: auto;
-  display: grid;
+  margin-bottom: 6vmax;
+  border: 0.2vmax solid var(--guardsman-red-300);
   align-content: flex-start;
-  background-color: var(--blue-soft);
+  border-radius: 1vmax;
+  background: rgba(0, 0, 0, 0.76);
+  display: grid;
+}
+@media (min-width: 760px) {
+  .about-me {
+    padding: 1vmax 5vmax;
+    width: 90%;
+  }
+}
+@media (min-width: 760px) {
+  .about-me {
+    box-shadow: 0px 0px 27px var(--guardsman-red-400);
+  }
 }
 @media (min-width: 991px) {
   .about-me {
+    width: 80%;
     grid-template-areas: "photo info";
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 30% 70%;
   }
-}
-.about-me .frame-texture {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, #06162b 1px, transparent 1px), linear-gradient(to bottom, #06162b 1px, transparent 1px);
-  background-size: 1vmax 2vmax;
-}
-.about-me .tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 0;
-  transform: translateY(-100%);
-  padding: 1vmin;
-  width: 15%;
-  min-width: 7rem;
-  background: rgb(247, 231, 12);
-  color: black;
-  cursor: pointer;
-  box-shadow: 0px 1px 20px rgb(1, 2, 1);
-  z-index: 4;
-  font-size: 1.2vmax;
-  right: 0.5%;
 }
 .about-me .photo {
   display: none;
@@ -65,18 +52,16 @@
   }
 }
 .about-me .photo img {
-  background: var(--blue-soft);
-  border: 0.2vmax solid rgb(247, 231, 12);
   width: 100%;
   height: 70%;
-  border-radius: 0.5vmax;
+  border-bottom: 0.2vmax solid var(--guardsman-red-300);
   z-index: 1;
 }
 .about-me .photo button {
   width: 17vmax;
   height: 3.5vmax;
-  font-size: 1.7vmax;
   z-index: 1;
+  cursor: pointer;
 }
 .about-me .container-info {
   grid-area: info;
@@ -101,71 +86,45 @@
   display: flex;
   justify-content: space-between;
   padding: 0 3.5vmax;
+  padding-bottom: 2vmax;
 }
 .about-me .container-info .info .presentation h2 {
-  font-size: 2vmax;
-  font-family: "Orbitron", sans-serif;
-  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
-  background: var(--gradient-silver);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  color: rgb(247, 231, 12);
-  text-shadow: 2px 2px 4px rgba(224, 238, 28, 0.726);
-}
-@media (min-width: 600px) {
-  .about-me .container-info .info .presentation h2 {
-    font-size: 3vmax;
-  }
+  font-size: 2.8vmax;
 }
 .about-me .container-info .info .presentation button {
   font-size: 1.2vmax;
+  cursor: pointer;
 }
 @media (min-width: 991px) {
   .about-me .container-info .info .presentation button {
     display: none;
   }
 }
-.about-me .container-info .info h3 {
-  font-size: 2vmax;
-  margin-bottom: 1.5vmin;
-  text-shadow: 1px 1px 2px rgba(199, 240, 20, 0.774);
-}
-@media (min-width: 600px) {
-  .about-me .container-info .info h3 {
-    font-size: 2.7vmax;
-  }
+.about-me .container-info .info h2 {
+  font-family: "Protest Riot", sans-serif;
 }
 .about-me .container-info .info p {
-  font-size: 1.3vmax;
-  width: 75%;
-  text-shadow: 2px 2px 4px rgba(199, 240, 20, 0.774);
+  width: 90%;
   margin-bottom: 5vmin;
-  text-align: justify;
+  text-align: center;
 }
 @media (min-width: 600px) {
   .about-me .container-info .info p {
     width: 80%;
-    font-size: 2vmax;
   }
 }
 .about-me .container-info .info .resume {
   display: grid;
-  width: 85%;
+  width: 90%;
+  font-size: clamp(8px, 1vmax, 24px);
   gap: 1.5vmin;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  font-size: 1.4vmax;
   padding: 1vmin;
-}
-@media (min-width: 480px) {
-  .about-me .container-info .info .resume {
-    width: 70%;
-  }
 }
 @media (min-width: 760px) {
   .about-me .container-info .info .resume {
-    width: 60%;
+    width: 80%;
   }
 }
 .about-me .container-info .info .resume span {
@@ -179,6 +138,7 @@
 }
 .about-me .container-info .info .resume .birth {
   position: relative;
+  cursor: pointer;
 }
 .about-me .container-info .info .resume .birth span {
   display: flex;
@@ -193,13 +153,12 @@
   background: rgba(0, 0, 0, 0.637);
   opacity: 0;
   transition: all 0.8s ease-in-out;
-  font-size: 1.5vmax;
 }
 .about-me .container-info .info .resume .birth:hover .hours {
   opacity: 1;
 }
 .about-me .container-info .info .skill {
-  padding-top: 2vmax;
+  padding-top: 5vmax;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,14 +167,7 @@
   align-items: center;
 }
 .about-me .container-info .info .skill h2 {
-  font-family: "Orbitron", sans-serif;
-  text-shadow: 2px 2px 4px rgba(236, 236, 236, 0.46);
-  background: var(--gradient-silver);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
   margin-bottom: 5vmin;
-  font-size: 2vmax;
 }
 .about-me .container-info .info .skill .container-skill {
   width: 100%;
@@ -240,17 +192,8 @@
   flex-direction: column;
   align-items: space-evenly;
   gap: 0.7vmin;
-  background-color: var(--blue-hard);
 }
 .about-me .container-info .info .skill .container-skill div strong {
   font-size: 5vmax;
-  color: rgb(247, 231, 12);
-}
-.about-me .container-info .info .skill .container-skill div span {
-  font-size: 1.2vmax;
-}
-@media (min-width: 600px) {
-  .about-me .container-info .info .skill .container-skill div span {
-    font-size: 2vmax;
-  }
+  color: var(--guardsman-red-300);
 }/*# sourceMappingURL=AboutComponent.css.map */
