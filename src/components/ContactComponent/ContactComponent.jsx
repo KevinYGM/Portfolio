@@ -48,7 +48,8 @@ export const ContactComponent = ({ languageEnglish }) => {
     e.preventDefault();
 
 
-    axios.post('http://127.0.0.1:3001/submit-form', formValidate)
+    // axios.post('http://127.0.0.1:3001/submit-form', formValidate)
+    axios.post('https://server-portfolio-alpha.vercel.app/', formValidate)
     //Server positive response process
       .then((response) => {
         console.log(response.data);
