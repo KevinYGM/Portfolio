@@ -1358,7 +1358,6 @@
   overflow-y: hidden;
 }
 .education .container .certifications .container-all-certifications .search {
-  background: rgb(34, 31, 31);
   background: linear-gradient(to left, var(--guardsman-red-950), black);
   display: flex;
   align-items: center;
