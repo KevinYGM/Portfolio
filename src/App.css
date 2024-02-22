@@ -155,7 +155,7 @@
 }
 .about-me .photo img {
   width: 100%;
-  height: 70%;
+  height: 50%;
   border-bottom: 0.2vmax solid var(--guardsman-red-300);
   z-index: 1;
 }
